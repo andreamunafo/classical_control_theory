@@ -1,6 +1,7 @@
 {
   "classical_control_theory": {
     "Overview": "/",
+    "Principles of Automatic Control": "Syllabus.html",
     "module name here": "core.html"
   }
 }

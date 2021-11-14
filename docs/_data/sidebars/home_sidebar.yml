@@ -10,6 +10,9 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
+      title: Principles of Automatic Control
+      url: Syllabus.html
+    - output: web,pdf
       title: module name here
       url: core.html
     output: web
