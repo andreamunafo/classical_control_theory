@@ -1,7 +1,8 @@
 {
   "classical_control_theory": {
     "Overview": "/",
-    "Principles of Automatic Control": "Syllabus.html",
-    "module name here": "core.html"
+    "Syllabus - Principles of Automatic Control": "Syllabus.html",
+    "module name here": "core.html",
+    "Getting Started with Python and Jupyter Notebooks": "Getting_started_with_Python_and_Jupyter_Notebook.html"
   }
 }

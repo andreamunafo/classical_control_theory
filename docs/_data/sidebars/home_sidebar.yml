@@ -10,11 +10,14 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Principles of Automatic Control
+      title: Syllabus - Principles of Automatic Control
       url: Syllabus.html
     - output: web,pdf
       title: module name here
       url: core.html
+    - output: web,pdf
+      title: Getting Started with Python and Jupyter Notebooks
+      url: Getting_started_with_Python_and_Jupyter_Notebook.html
     output: web
     title: classical_control_theory
   output: web
