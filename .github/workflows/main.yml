@@ -9,6 +9,8 @@ jobs:
       with:
         python-version: '3.6'
         architecture: 'x64'
+    - name: Setup FFmpeg
+      uses: FedericoCarboni/setup-ffmpeg@v1
     - name: Install the library
       run: |
         pip install nbdev jupyter
