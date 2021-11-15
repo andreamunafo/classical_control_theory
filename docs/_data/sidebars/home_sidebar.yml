@@ -19,7 +19,7 @@ entries:
       title: The Control Problem
       url: Intro_to_control_theory.html
     - output: web,pdf
-      title: Transfer function matrix
+      title: Transfer Functions
       url: Transfer_functions.html
     output: web
     title: classical_control_theory

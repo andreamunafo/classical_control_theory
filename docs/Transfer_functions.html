@@ -1,6 +1,6 @@
 ---
 
-title: Transfer function matrix
+title: Transfer Functions
 
 
 keywords: fastai
@@ -32,41 +32,6 @@ nb_path: "03_Transfer_functions.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
-<span class="o">%</span><span class="k">autoreload</span> 2
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
     {% endraw %}
@@ -75,12 +40,6 @@ nb_path: "03_Transfer_functions.ipynb"
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Transfer-Functions">Transfer Functions<a class="anchor-link" href="#Transfer-Functions"> </a></h2>
 </div>
 </div>
 </div>
@@ -235,7 +194,7 @@ $$e^{j\omega t} = cos(\omega t) + jsin(\omega t)$$
 <li>The equation $e^{st}$ is really just an exponential function multiplied by a sinusoid</li>
 </ul>
 <p>{% raw %}
-$$e^{st} = e^{(\sigma+j\omega)} = e^{\sigma}e^{j\omega}$$
+$$e^{st} = e^{(\sigma+j\omega)t} = e^{\sigma t}e^{j\omega t}$$
 {% endraw %}</p>
 
 </div>
@@ -1300,6 +1259,12 @@ $\displaystyle \left[ \frac{1}{s}, \  \frac{1}{s^{2}}, \  \frac{2}{s^{3}}, \  \f
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Transfer-function-matrix">Transfer function matrix<a class="anchor-link" href="#Transfer-function-matrix"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>We start from the state equations and use the derivate operator of $s$</li>
 <li>We also consider only the forced output of the system</li>
@@ -1324,6 +1289,7 @@ $$X = (sI-A)^{-1}BU;$$ $$Y = C(sI-A)^{-1}BU$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Matrix $G(s)=C(sI-A)^{-1}B$ is the <em>Transfer Function Matrix</em>(or <em>Transfer Matrix</em>).</p>
 <p>Each element of $G(s)$ expresses the <strong>dynamic</strong> relation (there is $s$) between an input channel and an output channel.</p>
+$$
 \begin{equation}
 G(s)=
 \begin{bmatrix}
@@ -1331,7 +1297,8 @@ g_{11}(s) &amp; ... &amp; g_{1m}(s)\\
 ... &amp; ... &amp; ... \\
 g_{p1}(s) &amp; ... &amp; g_{pm}(s)
 \end{bmatrix}
-\end{equation}<p>$g_{ij}(s)$: Transfer function between $u_j$ and $y_i$, each  $g_{ij}(s)=\frac{N(s)}{D(s)}$</p>
+\end{equation}
+$$<p>$g_{ij}(s)$: Transfer function between $u_j$ and $y_i$, each  $g_{ij}(s)=\frac{N(s)}{D(s)}$</p>
 
 </div>
 </div>
@@ -1420,7 +1387,13 @@ $$G(s) = c^T(sI-A)^{-1}b$$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Examples">Examples<a class="anchor-link" href="#Examples"> </a></h3>
+<h2 id="Examples">Examples<a class="anchor-link" href="#Examples"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example-1">Example 1<a class="anchor-link" href="#Example-1"> </a></h4>
 </div>
 </div>
 </div>
@@ -1429,6 +1402,46 @@ $$G(s) = c^T(sI-A)^{-1}b$$
 <p>{% raw %}
 $$F(s)=\frac{10}{s^2+12s+40}$$
 {% endraw %}</p>
+<ul>
+<li><p>poles: $-6 \pm \sqrt{36-40} = -6 \pm \sqrt{-4} = -6 \pm j2$</p>
+</li>
+<li><p>let's call $\alpha_1=-6 + j2$, $\alpha^*_1=-6 - j2$</p>
+</li>
+</ul>
+<p>We can then re-write:
+$$
+F(s) = \frac{10}{[s - (-6+j2)][s - (-6-j2)]} = \frac{10}{(s-\alpha_1)(s-\alpha^*_1)}
+$$</p>
+<p>To calculate the inverse transform we need to find the coefficients:</p>
+$$
+F(s) = \frac{10}{(s-\alpha_1)(s-\alpha^*_1)} = \frac{A}{s-\alpha_1} + \frac{B}{s-\alpha^*_1}
+$$<p>where $A$ and $B$ must be complex conjugated: $B=A^*$ (or we would not get real cofficient in $F(s)$).</p>
+$$
+F(s) = \frac{10}{(s-\alpha_1)(s-\alpha^*_1)} = \frac{A}{s-\alpha_1} + \frac{A^*}{s-\alpha^*_1}
+$$$$
+A = \lim \limits_{s\rightarrow \alpha_1}  \frac{10}{(s-\alpha_1)(s-\alpha^*_1)} (s-\alpha_1) = \frac{10}{\alpha_1-\alpha_1^*} = \frac{10}{2j \text{Img(}\alpha_1)}
+$$<p>this is because $a + jb - (a - jb) = 2jb$</p>
+$$
+B = \lim \limits_{s\rightarrow \alpha^*_1}  \frac{10}{(s-\alpha_1)(s-\alpha^*_1)} (s-\alpha^*_1) = \frac{10}{\alpha^*_1-\alpha_1} = -\frac{10}{2j \text{Img(}\alpha_1)}
+$$<p>Let's see now the inverse transform:</p>
+$$
+F(s) = \frac{A}{s-\alpha_1} + \frac{A^*}{s-\alpha^*_1} \rightarrow \mathcal{L^{-1}}  \rightarrow Ae^{\alpha_1t} + A^*e^{\alpha^*_1t}
+$$<p>where we could explicit $\alpha_1 = \sigma + j\omega$, and $A=|A|e^{j\Phi_A}$, $A^*=|A|e^{-j\Phi_A}$</p>
+$$
+f(t) = Ae^{\alpha_1t} + A^*e^{\alpha^*_1t} = |A|e^{j\Phi_A}e^{(\sigma +j\omega)t} + |A|e^{-j\Phi_A}e^{(\sigma -j\omega)t} = |A|e^{j\Phi_A}e^{\sigma t} e^{+j\omega t} + |A|e^{-j\Phi_A}e^{\sigma t}e^{-j\omega t}
+$$<p>we can group things together:</p>
+$$
+f(t) = |A|e^{j\Phi_A}e^{\sigma t} e^{+j\omega t} + |A|e^{-j\Phi_A}e^{\sigma t}e^{-j\omega t} = |A|e^{\sigma t} \big [   e^{j\Phi_A}e^{j\omega t} + e^{-j\Phi_A}e^{-j\omega t}  \big ] = |A|e^{\sigma t} \big [   e^{j(\Phi_A+\omega t)} + e^{-j(\Phi_A+\omega t)}  \big ]
+$$<p>and since $\frac{e^x+e^{-x}}{2}=cos(x)$, we can write the abov expression as:</p>
+$$
+f(t) = |A|e^{\sigma t} \big [   e^{j(\Phi_A+\omega t)} + e^{-j(\Phi_A+\omega t)}  \big ] = 2|A|e^{\sigma t}\cos(\Phi_A+\omega t)
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As expected we have an oscillatory term that could decrease or increase depending on the value of $\sigma$ (real part of the poles).</p>
 
 </div>
 </div>
@@ -1442,6 +1455,12 @@ $$F(s)=\frac{10}{s^2+12s+40}$$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example-2">Example 2<a class="anchor-link" href="#Example-2"> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>{% raw %}
 $$F(s) = \frac{100}{(s+1)(s^2+4s+13)}$$
 {% endraw %}</p>
@@ -1449,41 +1468,69 @@ $$F(s) = \frac{100}{(s+1)(s^2+4s+13)}$$
 <li>poles: $s=-1, s=-2\pm j3$</li>
 </ul>
 <p>We can write:</p>
-<p>{% raw %}
-$$F(s) = \frac{100}{(s+1)(s^2+4s+13)} = \frac{A_1}{(s+1)} + \frac{\Phi_1 s + \Psi}{s^2+4s+13}$$
-{% endraw %}</p>
-<p>Where we can calculate the value of the coefficient $A_1$:</p>
+$$
+F(s) = \frac{100}{(s+1)(s^2+4s+13)} = \frac{A_1}{(s+1)} + \frac{B_1}{(s-\alpha_1)} + \frac{B^*_1}{(s-\alpha^*_1)}
+$$<p>Where we can calculate the value of the coefficient $A_1$:</p>
 <ul>
-<li>for the pole in $s=-1$<ul>
-<li>$A_1 = \frac{100}{s^2+4s+13} \big |_{s=-1}$</li>
-</ul>
+<li><p>for the pole in $s=-1$
+ $$
+ A_1 = \frac{100}{s^2+4s+13} \bigg |_{s=-1} = \frac{100}{1-4+13} = 10
+ $$</p>
+</li>
+<li><p>for the pole in $s=\alpha_1=-2+j3$
+ $$
+ B_1 = (s-\alpha_1)\frac{100}{(s-\alpha_1)(s+1)(s-\alpha^*_1)} \bigg |_{s=-2+j3} =
+ \frac{100}{(-2+j3+1)(-2+j3-(-2+j3)} = \frac{100}{(-1+j3)6j} = \frac{100}{-18-6j} \\
+ = \frac{100}{-18-6j}\frac{-18+6j}{-18+6j} = \frac{100}{|-18-6j|^2}(-18+6j) = -\frac{100}{360}6(3-j)=-\frac{5}{3}(3-j)
+ $$</p>
+</li>
+<li><p>note: $z^{-1} = \frac{\bar{z}}{|z|^2}$</p>
 </li>
 </ul>
-<p>We can then write:</p>
-<p>{% raw %}
-$$ 100 = 10(s^2+4s+13) + (\Phi_1 s + \Psi)(s+1) $$
-{% endraw %}</p>
-<p>Evaluating the above equation, for example, in $s=0$ and $s=1$:</p>
-$$
-\begin{cases}
-100 = 130 +\Psi \\
-100 = 180 + (\Phi +\Psi)^2
-\end{cases}
-$$<ul>
-<li>and hence: $\Phi=-10, \Psi=-30$</li>
-</ul>
-<p>So $$\frac{10}{(s+1)} + \frac{-10 s + -30}{s^2+4s+13} $$</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can then calculate the inverse transform:</p>
-<p>{% raw %}
-$$f(t) = \mathcal{L}^{-1} \bigg [ \frac{10}{(s+1)} + -10\frac{s + 3}{s^2+4s+13}  \bigg ]  = 10 \mathcal{L}^{-1} \bigg [ \frac{1}{(s+1)} - \frac{s+2}{(s+2)^2 + 3^2} - \frac{1}{3} \frac{3}{(s+2)^2 + 3^3} \bigg ] = 10 \bigg [  e^{-t} - e^{-2t} (cos(3t) + \frac{1}{3} sin(3t))  \bigg ] = 10 \bigg [ e^{-t} + \frac{\sqrt{10}}{3}e^{-2t}cos(3t+\arg(j-3))  \bigg ]$$
+<p>and the inverse transform is:</p>
+$$
+f(t) = 10e^{-t} + 2|B_1|e^{-2t}cos(3t+\arg(B_1))
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example-3">Example 3<a class="anchor-link" href="#Example-3"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$
+F(s) = \frac{s+3}{s(s+7)(s+1)} = \frac{A}{s} + \frac{B}{s+7} + \frac{C}{s+1}  
+$$<p>Note that when we apply partial fraction decomposition we do:</p>
+$$
+\bigg [ \frac{A}{s} + \frac{B}{s+7} + \frac{C}{s+1} \bigg ]  (s+7) = \frac{A(s+7)}{s} + \frac{B(s+7)}{s+7} + \frac{C(s+7)}{s+1} \bigg | _{s=-7} = B 
+$$<p>so if we calculate the limits of both sides we can exactly what we want.</p>
+<p>we can then</p>
+$$
+B = \lim \limits_{s\rightarrow-7} \frac{s+3}{s(s+7)(s+1)} (s+7) = \frac{-4}{-7(-6)} = \frac{-4}{42} = \frac{-2}{21}
+$$<p>we can then calculate the other terms:</p>
+$$
+A = \lim \limits_{s\rightarrow 0} \frac{s+3}{s(s+7)(s+1)} (s) = \frac{3}{7}
+$$$$
+C = \lim \limits_{s\rightarrow -1} \frac{s+3}{s(s+7)(s+1)} (s+1) = \frac{2}{-6} = -\frac{1}{3}
+$$<p>Now we can do the inverse transform of:</p>
+$$
+F(s) = \frac{s+3}{s(s+7)(s+1)} = \frac{3}{7}\frac{1}{s} - \frac{2}{21}\frac{1}{s+7} - \frac{1}{3}\frac{1}{s+1} 
+$$<p>{% raw %}
+$$\Downarrow$$
 {% endraw %}</p>
-
+$$
+f(t) = \frac{3}{7} 1(t) - \frac{2}{21}e^{-7t} - \frac{1}{3}e^{-t}
+$$
 </div>
 </div>
 </div>
