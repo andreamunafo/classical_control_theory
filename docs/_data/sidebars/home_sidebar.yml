@@ -30,6 +30,9 @@ entries:
     - output: web,pdf
       title: 'Introduction to Frequency Response Methods: Bode Plots'
       url: Intro_to_freq_response_and_bode_plots.html
+    - output: web,pdf
+      title: Final Value Theorem and Steady State Error
+      url: Final_value_theorem_and_steady_state_error.html
     output: web
     title: classical_control_theory
   output: web

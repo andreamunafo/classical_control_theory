@@ -14,7 +14,8 @@ modules = ["intro_to_control_theory.py",
            "transfer_functions.py",
            "block_diagrams.py",
            "system_response.py",
-           "frequency_response.py"]
+           "frequency_response.py",
+           "steady_state_final_value_theorem.py"]
 
 doc_url = "https://andreamunafo.github.io/classical_control_theory/"
 
