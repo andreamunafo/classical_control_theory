@@ -5,6 +5,7 @@
     "Getting Started with Python and Jupyter Notebooks": "Getting_started_with_Python_and_Jupyter_Notebook.html",
     "The Control Problem": "Intro_to_control_theory.html",
     "Transfer Functions": "Transfer_functions.html",
-    "Block diagrams": "Block_Diagrams.html"
+    "Block diagrams": "Block_Diagrams.html",
+    "System Response": "System_response.html"
   }
 }
