@@ -2,9 +2,13 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {}
+index = {"Car": "02_Intro_to_control_theory.ipynb",
+         "LinearCar": "02_Intro_to_control_theory.ipynb",
+         "step": "02_Intro_to_control_theory.ipynb",
+         "delta": "02_Intro_to_control_theory.ipynb",
+         "ramp_as_impulses": "02_Intro_to_control_theory.ipynb"}
 
-modules = []
+modules = ["intro_to_control_theory.py"]
 
 doc_url = "https://andreamunafo.github.io/classical_control_theory/"
 
