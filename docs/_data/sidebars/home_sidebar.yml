@@ -21,6 +21,9 @@ entries:
     - output: web,pdf
       title: Transfer Functions
       url: Transfer_functions.html
+    - output: web,pdf
+      title: Block diagrams
+      url: Block_Diagrams.html
     output: web
     title: classical_control_theory
   output: web

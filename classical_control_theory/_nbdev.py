@@ -7,10 +7,12 @@ index = {"Car": "02_Intro_to_control_theory.ipynb",
          "step": "03_Transfer_functions.ipynb",
          "delta": "03_Transfer_functions.ipynb",
          "ramp_as_impulses": "02_Intro_to_control_theory.ipynb",
-         "ramp": "03_Transfer_functions.ipynb"}
+         "ramp": "03_Transfer_functions.ipynb",
+         "SimplerCar": "04_Block_Diagrams.ipynb"}
 
 modules = ["intro_to_control_theory.py",
-           "transfer_functions.py"]
+           "transfer_functions.py",
+           "block_diagrams.py"]
 
 doc_url = "https://andreamunafo.github.io/classical_control_theory/"
 
