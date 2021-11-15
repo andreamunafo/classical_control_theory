@@ -6,6 +6,7 @@
     "The Control Problem": "Intro_to_control_theory.html",
     "Transfer Functions": "Transfer_functions.html",
     "Block diagrams": "Block_Diagrams.html",
-    "System Response": "System_response.html"
+    "System Response": "System_response.html",
+    "Introduction to Frequency Response Methods: Bode Plots": "Intro_to_freq_response_and_bode_plots.html"
   }
 }

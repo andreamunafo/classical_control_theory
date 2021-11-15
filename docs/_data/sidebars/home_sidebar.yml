@@ -27,6 +27,9 @@ entries:
     - output: web,pdf
       title: System Response
       url: System_response.html
+    - output: web,pdf
+      title: 'Introduction to Frequency Response Methods: Bode Plots'
+      url: Intro_to_freq_response_and_bode_plots.html
     output: web
     title: classical_control_theory
   output: web
