@@ -38,7 +38,8 @@ nb_path: "04_Block_Diagrams.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Table-of-content">Table of content<a class="anchor-link" href="#Table-of-content"> </a></h2><ul>
+<p>This notebook will talk about:</p>
+<ul>
 <li>Basic components of block diagrams</li>
 <li>How to compose block diagrams together</li>
 <li>Block diagrams and system properties (e.g., Stability, etc)</li>
@@ -285,7 +286,25 @@ $$G(s) = \frac{s+1}{s+2} \frac{1}{s+1} = \frac{1}{s+2} $$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Observability-and-Controllobality-of-Interconnected-Systems:-Cascaded-Blocks">Observability and Controllobality of Interconnected Systems: Cascaded Blocks<a class="anchor-link" href="#Observability-and-Controllobality-of-Interconnected-Systems:-Cascaded-Blocks"> </a></h2>
+<h3 id="Observability-and-Controllobality-of-Interconnected-Systems">Observability and Controllobality of Interconnected Systems<a class="anchor-link" href="#Observability-and-Controllobality-of-Interconnected-Systems"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Controllability measures the ability of a particular actuator configuration to control all the states of the system;</p>
+</li>
+<li><p>Observability measures the ability of the particular sensor configuration to supply all the information necessary to estimate all the states of the system.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Cascaded-Blocks">Cascaded Blocks<a class="anchor-link" href="#Cascaded-Blocks"> </a></h4>
 </div>
 </div>
 </div>
@@ -316,7 +335,7 @@ $$G(s) = G_1(s)G_2(s) = \frac{N_1(s)}{D_1(s)}\frac{N_2(s)}{D_2(s)}$$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Observability-and-Controllobality-of-Interconnected-Systems:-Parallel-Blocks">Observability and Controllobality of Interconnected Systems: Parallel Blocks<a class="anchor-link" href="#Observability-and-Controllobality-of-Interconnected-Systems:-Parallel-Blocks"> </a></h2>
+<h4 id="Parallel-Blocks">Parallel Blocks<a class="anchor-link" href="#Parallel-Blocks"> </a></h4>
 </div>
 </div>
 </div>
@@ -344,7 +363,7 @@ $$G(s) = G_1(s) + G_2(s) = \frac{N_1(s)}{D_1(s)} + \frac{N_2(s)}{D_2(s)} = \frac
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Observability-and-Controllobality-of-Interconnected-Systems:-Feedback-Loop">Observability and Controllobality of Interconnected Systems: Feedback Loop<a class="anchor-link" href="#Observability-and-Controllobality-of-Interconnected-Systems:-Feedback-Loop"> </a></h2>
+<h4 id="Feedback-Loop">Feedback Loop<a class="anchor-link" href="#Feedback-Loop"> </a></h4>
 </div>
 </div>
 </div>
@@ -366,8 +385,8 @@ $$G(s) = \frac{G_1(s)}{1 + G_1(s)G_2(s)} =\frac{\frac{N_1(s)}{D_1(s)}}{1 + \frac
 <ul>
 <li>We have the equivalent of a serie interconnection: $G_1(s)G_2(s)$, same rules apply</li>
 <li>Cancellations occur when $N_1(s)$ and $D_2(s)$ have common factors (you can bring them out together in the numerator and then cancel them out with those in the denumerator):<ul>
-<li>When zero of $G_1(s)$ cancel a pole of $G_2(s)$ then we have a <strong>non-observable and non-controllable</strong> part of the system.</li>
-<li>When pole of $G_1(s)$ cancel a zero of $G_2(s)$ then we still have a <strong>fully observable and fully controllable</strong> system. This is because the denominator of $G(s)$ does not lose its degree</li>
+<li>When zero of $G_1(s)$ cancels a pole of $G_2(s)$ then we have a <strong>non-observable and non-controllable</strong> part of the system.</li>
+<li>When pole of $G_1(s)$ cancels a zero of $G_2(s)$ then we still have a <strong>fully observable and fully controllable</strong> system. This is because the denominator of $G(s)$ does not lose its degree.</li>
 </ul>
 </li>
 </ul>
@@ -381,7 +400,7 @@ $$G(s) = \frac{G_1(s)}{1 + G_1(s)G_2(s)} =\frac{\frac{N_1(s)}{D_1(s)}}{1 + \frac
 <ul>
 <li>zero of $G_1(s)$ cancels a pole of $G_2(s)$
 {% raw %}
-$$G_1(s)=\frac{s+1}{s+2}, G_2(s)=\frac{s+3}{s+1}$$
+$$G_1(s)=\frac{s+1}{s+2},\;\; G_2(s)=\frac{s+3}{s+1}$$
 {% endraw %}</li>
 </ul>
 <p>{% raw %}
@@ -390,7 +409,7 @@ $$\Rightarrow G(s)= \frac{\frac{s+1}{s+2}}{1+\frac{s+3}{s+2}} = \frac{s+3}{1+(s+
 <ul>
 <li>pole of $G_1(s)$ cancels a zero of $G_2(s)$
 {% raw %}
-$$G_1(s)=\frac{s+1}{s+2}, G_2(s)=\frac{s+2}{s+3}$$
+$$G_1(s)=\frac{s+1}{s+2},\;\; G_2(s)=\frac{s+2}{s+3}$$
 {% endraw %}</li>
 </ul>
 <p>{% raw %}
@@ -402,7 +421,7 @@ $$\Rightarrow G(s)= \frac{\frac{s+1}{s+2}}{1+\frac{s+1}{s+3}} = \frac{\frac{(s+1
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Stability">Stability<a class="anchor-link" href="#Stability"> </a></h2>
+<h3 id="Stability-of-Interconnected-Systems">Stability of Interconnected Systems<a class="anchor-link" href="#Stability-of-Interconnected-Systems"> </a></h3>
 </div>
 </div>
 </div>
@@ -423,7 +442,7 @@ $$\Rightarrow G(s)= \frac{\frac{s+1}{s+2}}{1+\frac{s+1}{s+3}} = \frac{\frac{(s+1
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Cascaded-Blocks">Cascaded Blocks<a class="anchor-link" href="#Cascaded-Blocks"> </a></h3>
+<h4 id="Cascaded-Blocks">Cascaded Blocks<a class="anchor-link" href="#Cascaded-Blocks"> </a></h4>
 </div>
 </div>
 </div>
@@ -449,9 +468,9 @@ $$G(s) = G_1(s)G_2(s) = \frac{N_1(s)}{D_1(s)}\frac{N_2(s)}{D_2(s)}$$
 </ul>
 <p><strong>Zero-pole/pole-zero cancellations</strong></p>
 <ul>
-<li>In this case, the overall system has an hidden part corresponding to the zero-pole or pole-zero cancellation. In this case, <em>if the cancellation is of a pole with Re $&gt;=0$ then the hidden part is not stable and the entire system is not stable</em>.</li>
+<li>In this case, the overall system has an hidden part corresponding to the zero-pole or pole-zero cancellation. In this case, <em>if the cancellation is of a pole with Re $\ge0$ then the hidden part is not stable and the entire system is not stable</em>.</li>
 <li>We call these types of cancellations, <strong>critical</strong>.</li>
-<li>Note that this is not visible directly from the T.F.!</li>
+<li>Note that this is not visible directly from the transfer function!</li>
 </ul>
 
 </div>
@@ -459,7 +478,7 @@ $$G(s) = G_1(s)G_2(s) = \frac{N_1(s)}{D_1(s)}\frac{N_2(s)}{D_2(s)}$$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Parallel-Blocks">Parallel Blocks<a class="anchor-link" href="#Parallel-Blocks"> </a></h3>
+<h4 id="Parallel-Blocks">Parallel Blocks<a class="anchor-link" href="#Parallel-Blocks"> </a></h4>
 </div>
 </div>
 </div>
@@ -497,7 +516,7 @@ $$G(s) = G_1(s) + G_2(s) = \frac{N_1(s)}{D_1(s)} + \frac{N_2(s)}{D_2(s)} = \frac
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Feedback-Loop">Feedback Loop<a class="anchor-link" href="#Feedback-Loop"> </a></h3>
+<h4 id="Feedback-Loop">Feedback Loop<a class="anchor-link" href="#Feedback-Loop"> </a></h4>
 </div>
 </div>
 </div>

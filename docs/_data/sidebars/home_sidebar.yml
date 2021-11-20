@@ -33,6 +33,12 @@ entries:
     - output: web,pdf
       title: Final Value Theorem and Steady State Error
       url: Final_value_theorem_and_steady_state_error.html
+    - output: web,pdf
+      title: Routh-Hurwitz Criterion
+      url: Routh_hurwitz_criterion.html
+    - output: web,pdf
+      title: Simulating a simple pendulum
+      url: Simple_pendulum_simulation.html
     output: web
     title: classical_control_theory
   output: web

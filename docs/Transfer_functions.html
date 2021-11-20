@@ -1344,7 +1344,7 @@ $$G(s) = \frac{CAdjugate(sI-A)B}{det(sI-A)}$$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p>The poles of the system G(s) are, in general, a <em>subset</em> of the roots of the eq. $det(sI-A)=0$</p>
+<li><p>The poles of the system $G(s)$ are, in general, a <em>subset</em> of the roots of the eq. $det(sI-A)=0$</p>
 </li>
 <li><p>which are the same as the roots of the characteristic equation: $det(A-\lambda I)=0$</p>
 </li>
@@ -1358,7 +1358,7 @@ $$G(s) = \frac{CAdjugate(sI-A)B}{det(sI-A)}$$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Transfer-function,-controllability-and-observability">Transfer function, controllability and observability<a class="anchor-link" href="#Transfer-function,-controllability-and-observability"> </a></h2><ul>
-<li>For each $g_{ij}s$, the poles of the transfer function are only the poles that are <strong>controllable</strong> from input $u_j$ and <strong>observable</strong> from the output $y$.</li>
+<li>For each $g_{ij}(s)$, the poles of the transfer function are only the poles that are <strong>controllable</strong> from input $u_j$ and <strong>observable</strong> from the output $y_i$.</li>
 </ul>
 
 </div>
@@ -1387,7 +1387,142 @@ $$G(s) = c^T(sI-A)^{-1}b$$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Examples">Examples<a class="anchor-link" href="#Examples"> </a></h2>
+<h2 id="Stability-in-Classical-Control">Stability in Classical Control<a class="anchor-link" href="#Stability-in-Classical-Control"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Stability is the property of the system to stay close to its equilibrium $\bar{x}$ when perturbed
+{% raw %}
+$$ \forall ||x_0 - \bar{x} || \le \delta \rightarrow ||x(t) - \bar{x}||\le\epsilon,\;\; \forall t\ge 0$$
+{% endraw %}</p>
+</li>
+<li><p>Asymptotic stability: the property of the system to go back to its equilibrium when perturbed: $||x(t)|| \rightarrow \bar{x}$, for $t\rightarrow \inf$.</p>
+</li>
+</ul>
+<p><strong>BIBO stability</strong></p>
+<ul>
+<li>A system is BIBO stable (Bounded Input, Bounded Output) if for each limited input, there is a limited output</li>
+<li>For linear systems: BIBO stability if and only if poles of the transfer functions have Re $&lt;0$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Intuition:</strong> You can think of stability as meaning that your system’s response decays over time - instability implies the opposite is true, that a finite input will cause your system to respond with increasing amplitude over time, leading to an unstable system.</p>
+<p>Note that it is possible to be maginally stable: the system has an infinite, oscillatory response (e.g., sinusoid at constant frequency and amplitude).</p>
+<p><strong>Stability margins:</strong></p>
+<ul>
+<li>Even if your system is stable, unmodelled dynamics or parameter variations could make it unstable.</li>
+<li>Stability margins make it possible to evaluate the robustness of the system to these variations.</li>
+</ul>
+<p>Note that too much stability is not necessarily a good thing: a system that is too stable means that will tend not to move from its equilibrium even when you desired it to do so.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="System-stability-and-system-matrix">System stability and system matrix<a class="anchor-link" href="#System-stability-and-system-matrix"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>System stability depends on the eigenvalues of the system matrix $A$ or on the poles of the transfer function:</p>
+<ul>
+<li>eigenvalues with $Re &lt; 0$, system is asymptotically stable</li>
+<li>eigenvalues with $Re \le 0$, and $Re=0$ have multiplicity 1 then the system is stable</li>
+</ul>
+<p>When we analyse the stability of linearised systems things can be more complicated.</p>
+<ul>
+<li><p>If the linear system is aymptotically stable, then the non-linear system is stable (around the equilibrium): we can always move close enough to the equilibrium to be inside its region of stability)</p>
+</li>
+<li><p>If the linear system is marginally stable, we cannot say anything on the non-linear system (other non-linear dynamics become key)</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="System-stability-and-transfer-function">System stability and transfer function<a class="anchor-link" href="#System-stability-and-transfer-function"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The stability of a linear system may be determined directly from its transfer function. </li>
+<li>An nth order
+linear system is asymptotically stable only if all of the components in the response
+from a finite set of initial conditions decay to zero as time increases, or:
+$$
+\lim \limits_{t\rightarrow\inf} \sum_{i=1}^{n} C_ie^{p_it}
+$$</li>
+</ul>
+<p>where the $p_i$ are the system poles.</p>
+<p>For linear systems modelled through their transfer function $G(s)=\frac{N(s)}{D(s)}$, we need to analyse the roots of the characteristic equation $D(s)=0$:</p>
+<ul>
+<li>the system is stable if all the roots of the characteristic equation have negative real part</li>
+<li>the system is stable if all its poles have negative real part. </li>
+</ul>
+<p><em>In order for a linear system to be stable, all of its poles must have negative real parts,
+that is they must all lie within the left-half of the s-plane. An "unstable" pole, lying in
+the right half of the s-plane, generates a component in the system homogeneous response
+that increases without bound from any finite initial conditions. A system having one
+or more poles lying on the imaginary axis of the s-plane has non-decaying oscillatory
+components in its homogeneous response, and is defined to be marginally stable.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="More-structural-properties">More structural properties<a class="anchor-link" href="#More-structural-properties"> </a></h2><ul>
+<li><p>Stability only depends on the structure of the system (matrix A)</p>
+</li>
+<li><p>Other aspects:</p>
+<ul>
+<li>What input do we need to take the system into a given state?</li>
+<li>Given the output of a system, how can we determine the state?</li>
+</ul>
+</li>
+</ul>
+<h3 id="Controllability">Controllability<a class="anchor-link" href="#Controllability"> </a></h3><ul>
+<li>A state $x$ is controllable if exists an input $u$ that can take the trajectory of the system from state $0$ to $x$ in finite time.</li>
+<li>A system is controllable if all its states are controllable</li>
+</ul>
+<h3 id="Observability">Observability<a class="anchor-link" href="#Observability"> </a></h3><ul>
+<li>An initial state is observable if it is possible to determine $x$ measuring the system output $y$</li>
+<li>A system is observable if all its states are observable</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Laplace-Transforms-Examples">Laplace Transforms Examples<a class="anchor-link" href="#Laplace-Transforms-Examples"> </a></h2>
 </div>
 </div>
 </div>
@@ -1432,7 +1567,7 @@ f(t) = Ae^{\alpha_1t} + A^*e^{\alpha^*_1t} = |A|e^{j\Phi_A}e^{(\sigma +j\omega)t
 $$<p>we can group things together:</p>
 $$
 f(t) = |A|e^{j\Phi_A}e^{\sigma t} e^{+j\omega t} + |A|e^{-j\Phi_A}e^{\sigma t}e^{-j\omega t} = |A|e^{\sigma t} \big [   e^{j\Phi_A}e^{j\omega t} + e^{-j\Phi_A}e^{-j\omega t}  \big ] = |A|e^{\sigma t} \big [   e^{j(\Phi_A+\omega t)} + e^{-j(\Phi_A+\omega t)}  \big ]
-$$<p>and since $\frac{e^x+e^{-x}}{2}=cos(x)$, we can write the abov expression as:</p>
+$$<p>and since $\frac{e^{jx}+e^{-jx}}{2}=cos(x)$, we can write the abov expression as:</p>
 $$
 f(t) = |A|e^{\sigma t} \big [   e^{j(\Phi_A+\omega t)} + e^{-j(\Phi_A+\omega t)}  \big ] = 2|A|e^{\sigma t}\cos(\Phi_A+\omega t)
 $$
