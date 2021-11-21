@@ -31,7 +31,7 @@ Notebook `01_Getting_started_with_Python_and_Jupyter_Notebook.ipynb` provides a 
 
 Each notebook is thought to be independent from every other, so it is possible to run them in any order you prefer.
 
-## Credits
+## Acknowledgements and references
 - Images above are from the paper _Conlan Cesar, Benjamin Whetton, Michael DeFilippo, Michael Benjamin, Michael Sacarny, Scott Reed, Andrea Munafo, Coordinating Multiple Autonomies to Improve Mission Performance, OCEANS 2021 MTS/IEEE, October, 2021_
 
 - _Some of the images and content used in the notebooks have been based on resources available from [engineeringmedia.com](https://engineeringmedia.com/map-of-control). The website and the youtube videos are a fantastic resource on control systems._
