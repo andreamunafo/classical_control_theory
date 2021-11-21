@@ -38,7 +38,13 @@ entries:
       url: Routh_hurwitz_criterion.html
     - output: web,pdf
       title: Simulating a simple pendulum
-      url: Simple_pendulum_simulation.html
+      url: Simple_pendulum.html
+    - output: web,pdf
+      title: Title
+      url: DC_motor.html
+    - output: web,pdf
+      title: Workspace
+      url: workspace.html
     output: web
     title: classical_control_theory
   output: web

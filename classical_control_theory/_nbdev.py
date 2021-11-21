@@ -9,16 +9,18 @@ index = {"Car": "02_Intro_to_control_theory.ipynb",
          "ramp_as_impulses": "02_Intro_to_control_theory.ipynb",
          "ramp": "03_Transfer_functions.ipynb",
          "SimplerCar": "04_Block_Diagrams.ipynb",
-         "PendulumParameters": "90_Simple_pendulum_simulation.ipynb",
-         "Load": "90_Simple_pendulum_simulation.ipynb",
-         "Pendulum": "90_Simple_pendulum_simulation.ipynb",
-         "PendulumDrawer": "90_Simple_pendulum_simulation.ipynb",
-         "AnimatePendulum": "90_Simple_pendulum_simulation.ipynb",
-         "wrap": "90_Simple_pendulum_simulation.ipynb",
-         "DCMotorParams": "90_Simple_pendulum_simulation.ipynb",
-         "DCMotor": "90_Simple_pendulum_simulation.ipynb",
-         "MotorController": "90_Simple_pendulum_simulation.ipynb",
-         "AnimateControlledPendulum": "90_Simple_pendulum_simulation.ipynb"}
+         "PendulumParameters": "90_Simple_pendulum.ipynb",
+         "Load": "90_Simple_pendulum.ipynb",
+         "Pendulum": "90_Simple_pendulum.ipynb",
+         "PendulumDrawer": "90_Simple_pendulum.ipynb",
+         "AnimatePendulum": "90_Simple_pendulum.ipynb",
+         "wrap": "91_DC_motor.ipynb",
+         "DCMotorParams": "91_DC_motor.ipynb",
+         "DCMotor": "91_DC_motor.ipynb",
+         "MotorController": "90_Simple_pendulum.ipynb",
+         "AnimateControlledPendulum": "91_DC_motor.ipynb",
+         "PID": "91_DC_motor.ipynb",
+         "Simulator": "91_DC_motor.ipynb"}
 
 modules = ["intro_to_control_theory.py",
            "transfer_functions.py",
@@ -27,7 +29,9 @@ modules = ["intro_to_control_theory.py",
            "frequency_response.py",
            "steady_state_final_value_theorem.py",
            "routh_hurwitz_criterion.py",
-           "simple_pendulum_simulation.py"]
+           "simple_pendulum.py",
+           "dc_motor.py",
+           "workspace.py"]
 
 doc_url = "https://andreamunafo.github.io/classical_control_theory/"
 

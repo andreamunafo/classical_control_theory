@@ -4,8 +4,4 @@ __all__ = []
 
 # Cell
 import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
-import matplotlib.animation as animation
-import pandas as pd
-import time as systime
