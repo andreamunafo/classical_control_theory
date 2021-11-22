@@ -40,7 +40,7 @@ entries:
       title: Simulating a simple pendulum
       url: Simple_pendulum.html
     - output: web,pdf
-      title: Title
+      title: DC Motor
       url: DC_motor.html
     - output: web,pdf
       title: Workspace
