@@ -685,6 +685,344 @@ $$<ul>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>How can we use the Routh Criterion for more than just assessing stability</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Suppose you have an open loop system:</p>
+$$
+G(s) =\frac{1}{s^4+6s^3+11s^2+6s+2}
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Design requirement:</p>
+<ul>
+<li>improve system response time</li>
+</ul>
+<p>We can add feedback:</p>
+<table style='margin: 0 auto' rules=none>
+<tr>
+<td> <img src="img/rhc-beyond-stability-1.png" alt="rhc-beyond-stability" style="width: 500px;"/> </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$U(s)$ is the reference signal (e.g. desired angle, etc.)</li>
+<li>Note that the feedback path is unitary: perfect sensor (it always knows the output signal (e.g. system angle) with no delay or error)</li>
+<li>We want to tune the gain $K$ to get the response that we desire<ul>
+<li>Adjusting the gain increases the amplitude of the signal (err)</li>
+<li>In an open loop linear system we can increase the amplitude as much as we want</li>
+<li>The feedback loop however changes the dynamics</li>
+</ul>
+</li>
+<li><p>Typical requirement: increase the gain large enough to meet our requirements (e.g. fastest response) while keeping the system stable</p>
+</li>
+<li><p>Let's assess the closed loop stability using RHC</p>
+</li>
+<li><ol>
+<li>Simplify the block diagram:
+$$
+\hat{G}(s) = \frac{\frac{K}{s^4+6s^3+11s^2+6s+2}}{1+\frac{K}{s^4+6s^3+11s^2+6s+2}} = \frac{K}{s^4+6s^3+11s^2+6s+2 + K}
+$$</li>
+</ol>
+<p>The new characteristic equation for the closed loop system is:
+$$  
+s^4+6s^3+11s^2+6s+2 + K = 0
+$$</p>
+</li>
+<li><ol>
+<li>Build the Routh array</li>
+</ol>
+</li>
+</ul>
+<table>
+<thead><tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$s^4$</td>
+<td>$1$</td>
+<td>$11$</td>
+<td>$24+K$</td>
+</tr>
+<tr>
+<td>$s^{3}$</td>
+<td>$6$</td>
+<td>$6$</td>
+<td>$0$</td>
+</tr>
+<tr>
+<td>$s^2$</td>
+<td>$10$</td>
+<td>$K+2$</td>
+<td></td>
+</tr>
+<tr>
+<td>$s^{1}$</td>
+<td>$48-6K$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$s^{0}$</td>
+<td>$K+2$</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>To have asymptotic stability:</p>
+<ul>
+<li>$48-6K &gt; 0 \rightarrow K &lt; 8$ </li>
+<li>$K+2&gt;0 \rightarrow K &gt; -2$</li>
+<li>Stability range is $-2 &lt; K &lt; 8$</li>
+</ul>
+</li>
+<li><p>When $K=-2$, we have un pole in the origin</p>
+</li>
+<li><p>When $K=8$, we have a pair of imaginary poles and the system is marginally stable</p>
+</li>
+<li><p>We know the gain margin that we have before the system becomes unstable</p>
+</li>
+<li>We do not know where the poles are exactly (we only know when they cross the imaginary axis)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example-2">Example 2<a class="anchor-link" href="#Example-2"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Suppose you have an open loop system:</p>
+$$
+G(s) =\frac{1}{s^4+10s^3+35s^2+50s+24} = \frac{1}{(s+1)(s+2)(s+3)(s+4)}
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Design requirement:</p>
+<ul>
+<li>improve system response time</li>
+</ul>
+<p>We can add feedback:</p>
+<table style='margin: 0 auto' rules=none>
+<tr>
+<td> <img src="img/rhc-beyond-stability-1.png" alt="rhc-beyond-stability" style="width: 500px;"/> </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$U(s)$ is the reference signal (e.g. desired angle, etc.)</li>
+<li>Note that the feedback path is unitary: perfect sensor (it always knows the output signal (e.g. system angle) with no delay or error)</li>
+<li>We want to tune the gain $K$ to get the response that we desire<ul>
+<li>Adjusting the gain increases the amplitude of the signal (err)</li>
+<li>In an open loop linear system we can increase the amplitude as much as we want</li>
+<li>The feedback loop however changes the dynamics</li>
+</ul>
+</li>
+<li><p>Typical requirement: increase the gain large enough to meet our requirements (e.g. fastest response) while keeping the system stable</p>
+</li>
+<li><p>Let's assess the closed loop stability using RHC</p>
+</li>
+<li><ol>
+<li>Simplify the block diagram:
+$$
+\hat{G}(s) = \frac{\frac{K}{s^4+10s^3+35s^2+50s+24}}{1+\frac{K}{s^4+10s^3+35s^2+50s+24}} = \frac{K}{s^4+10s^3+35s^2+50s+24 + K}
+$$</li>
+</ol>
+<p>The new characteristic equation for the closed loop system is:
+$$  
+s^4+10s^3+35s^2+50s+24 + K = 0
+$$</p>
+</li>
+<li><ol>
+<li>Build the Routh array</li>
+</ol>
+</li>
+</ul>
+<table>
+<thead><tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$s^4$</td>
+<td>$1$</td>
+<td>$35$</td>
+<td>$24+K$</td>
+</tr>
+<tr>
+<td>$s^{3}$</td>
+<td>$10$</td>
+<td>$50$</td>
+<td>$0$</td>
+</tr>
+<tr>
+<td>$s^2$</td>
+<td>$\frac{10\cdot35-50}{10}=30$</td>
+<td>$24+K$</td>
+<td></td>
+</tr>
+<tr>
+<td>$s^{1}$</td>
+<td>$42-\frac{K}{3}$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$s^{0}$</td>
+<td>$24+K$</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>How many sign changes?</p>
+<ul>
+<li>$42-K/3 &gt; 0 \rightarrow K &lt; 126$ </li>
+<li>$K &gt; -24$</li>
+<li>and solving the system of equations: $K &lt; 126$</li>
+</ul>
+</li>
+<li><p>When $K=-24$ we have a pole in the origin</p>
+</li>
+<li>When $K = 126$ the poles would be going from $Re&lt;0$ to $Re&gt;0$ (imaginary poles) and the system would be marginally stable</li>
+</ul>
+<p>Again,</p>
+<ul>
+<li>We know the gain margin that we have</li>
+<li>We do not know where the poles are exactly (we only know when they cross the imaginary axis)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Having-additional-requirements:-time-to-half">Having additional requirements: time to half<a class="anchor-link" href="#Having-additional-requirements:-time-to-half"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The time to half is the time for a signal to half (or double, if unstable) the initial signal in magnitude.</li>
+<li><p>Typical requirement, especially when dealing with systems that interact with humans: the system should not be too fast or too slow to respond</p>
+</li>
+<li><p>A time to half requirements is a requirement on the real part of the poles</p>
+</li>
+<li><p>We would like the poles to be to the left of a line called the <em>z-line</em></p>
+</li>
+<li><p>Set $s=z-\sigma_{des}$</p>
+<ul>
+<li>When $z=0$, $s=-\sigma_{des}$, and the poles have the desired real part.</li>
+</ul>
+</li>
+<li><p>Given a characteristic equation $D(s)=0$
+$$
+s^3+5s^2+25s+30=0
+$$</p>
+</li>
+</ul>
+<p>we replace $s=z-\sigma_{des}$ (e.g $\sigma_{des}$=-1)</p>
+$$
+(z-1)^3+5(z-1)^2+25(z-1)+30=0
+$$$$
+\Downarrow
+$$$$
+z^3+2z^2+18s+9=0
+$$<ul>
+<li>We can now use the Routh array to verify if the system has any roots to the right of the <em>z-line</em></li>
+</ul>
+<table>
+<thead><tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$s^3$</td>
+<td>$1$</td>
+<td>$18$</td>
+<td></td>
+</tr>
+<tr>
+<td>$s^{2}$</td>
+<td>$2$</td>
+<td>$9$</td>
+<td></td>
+</tr>
+<tr>
+<td>$s^1$</td>
+<td>$\frac{27}{2}$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$s^{0}$</td>
+<td>$9$</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>No sign changes in the first column: all roots are to the left side of $s=-1$.</li>
+</ul>
+
+</div>
+</div>
+</div>
 </div>
  
 
