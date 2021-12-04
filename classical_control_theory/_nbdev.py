@@ -29,6 +29,7 @@ modules = ["intro_to_control_theory.py",
            "frequency_response.py",
            "steady_state_final_value_theorem.py",
            "routh_hurwitz_criterion.py",
+           "nyquist_stability_criterion.py",
            "simple_pendulum.py",
            "dc_motor.py",
            "workspace.py"]
