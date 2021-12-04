@@ -45,5 +45,6 @@ Each notebook is thought to be independent from every other, so it is possible t
 - [Control systems academy](http://www.controlsystemsacademy.com/)
 - [Process Dynamics and Control in Python](https://apmonitor.com/pdc/index.php)
 - [Karl J. Åström and Richard M. Murray, Feedback Systems: An Introduction for Scientists and Engineers](http://www.cds.caltech.edu/~murray/amwiki/index.php/Main_Page)
+- [Lecture series on Control Engineering by Prof. Madan Gopal](https://www.youtube.com/playlist?list=PLghJObT_RyfLmKRT86TquJhG6QuiHZ6Pi)
 
 --------------------
