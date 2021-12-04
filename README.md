@@ -40,4 +40,10 @@ Each notebook is thought to be independent from every other, so it is possible t
 
 - Relevant textbooks used to prepare these notebooks are reported in `00_Syllabus.ipynb`. 
 
+## Additional resources
+
+- [Control systems academy](http://www.controlsystemsacademy.com/)
+- [Process Dynamics and Control in Python](https://apmonitor.com/pdc/index.php)
+- [Karl J. Åström and Richard M. Murray, Feedback Systems: An Introduction for Scientists and Engineers](http://www.cds.caltech.edu/~murray/amwiki/index.php/Main_Page)
+
 --------------------
