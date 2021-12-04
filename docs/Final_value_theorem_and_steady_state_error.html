@@ -41,7 +41,8 @@ nb_path: "07_Final_value_theorem_and_steady_state_error.ipynb"
 <p>Before we can talk about control systems there is one more concept that we need to understand</p>
 <h2 id="What-does-it-mean-to-have-a-final-value?">What does it mean to have a final value?<a class="anchor-link" href="#What-does-it-mean-to-have-a-final-value?"> </a></h2><tr>
 <td> <img src="img/55.final_values_1.png" alt="55.final_values.png" style="width: 750px;"/> </td>
-</tr>
+</tr><p>Intuitively, if the output converges to a single value then the final value exists, if instead the output oscillates indefinitely or blows up to infinity then talking abut the final value is meaningless.</p>
+
 </div>
 </div>
 </div>
@@ -50,19 +51,19 @@ nb_path: "07_Final_value_theorem_and_steady_state_error.ipynb"
 <h2 id="How-do-we-calculate-the-final-value?">How do we calculate the final value?<a class="anchor-link" href="#How-do-we-calculate-the-final-value?"> </a></h2><ul>
 <li><p><strong>Time domain</strong></p>
 <ul>
-<li><p>Final Value = $\lim_{t\rightarrow0} f(t)$</p>
+<li><p>Final Value = $\lim_{t\rightarrow\infty} f(t)$</p>
 <p>This means, for example that given a differential equation:</p>
 <ul>
 <li>$\large \ddot{x}(t) + 4\dot{x}(t) + 2x(t) + \delta(0)$ </li>
-<li>We can solve it and calculate $\large \lim\limits_{t\rightarrow0} x(t)$.</li>
+<li>We can solve it and calculate $\large \lim\limits_{t\rightarrow\infty} x(t)$.</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p><strong>S-Domain</strong></p>
 <ul>
-<li>We can work directly with the transfer function: $\large F(s) = \mathcal{L}(f(t))$</li>
-<li>It simplifies the math: differential equations in the time domain become algebraic equations in the s-domain:<ul>
+<li>We can work directly with the transfer function: $\large F(s) = \mathcal{L}(f(t))$ (s-domain representation of differential equations)</li>
+<li>Importantly, working in the S-domain simplifies the math: differential equations in the time domain become algebraic equations in the s-domain:<ul>
 <li>$\large s^2X(s)+3sX(s) + 2X(s) = 1$</li>
 </ul>
 </li>
@@ -77,7 +78,8 @@ nb_path: "07_Final_value_theorem_and_steady_state_error.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Final-Value-Theorem">Final Value Theorem<a class="anchor-link" href="#Final-Value-Theorem"> </a></h2><blockquote><p>$\large \lim\limits_{t \rightarrow \inf} f(t) = \lim\limits_{s \rightarrow 0} sF(s)$</p>
+<h2 id="Final-Value-Theorem">Final Value Theorem<a class="anchor-link" href="#Final-Value-Theorem"> </a></h2><p>If and only if the linear time invariant system producing $x(t)$ is stable then</p>
+<blockquote><p>$\large \lim\limits_{t \rightarrow \infty} x(t) = \lim\limits_{s \rightarrow 0} sX(s)$</p>
 </blockquote>
 
 </div>
@@ -98,7 +100,7 @@ nb_path: "07_Final_value_theorem_and_steady_state_error.ipynb"
 <ul>
 <li>The Final Value Theorem does not work on every single transfer function</li>
 </ul>
-<p>We can differentiate four cases:</p>
+<p>We can differentiate four cases in the s-plane:</p>
 <ul>
 <li>Right Half Plane (Real &gt; 0)</li>
 <li>Imaginary axis (Real = 0)</li>
@@ -110,8 +112,8 @@ nb_path: "07_Final_value_theorem_and_steady_state_error.ipynb"
 <li><p><strong>Right Half Plane (Real &gt; 0):</strong> In this case, the system is unstable: The real component is positive, and $e^{+st}$ goes to infinity.</p>
 <ul>
 <li><p>The final value of a system with a pole in the RHP does not exist</p>
-<p>For ex. $G(s) = \frac{1}{s-2}$
-  FVT: $\lim\limits_{s \rightarrow 0} \frac{s}{s-2}=0$</p>
+<p>For ex. $$G(s) = \frac{1}{s-2}$$
+  FVT: $$\lim\limits_{s \rightarrow 0} \frac{s}{s-2}=0$$</p>
 <ul>
 <li>The FVT produces the wrong value if you use it.</li>
 </ul>
@@ -124,8 +126,8 @@ nb_path: "07_Final_value_theorem_and_steady_state_error.ipynb"
 <ul>
 <li>We know that the system will have oscillatory modes ($e^{(jwt)}$ produces sin/cos)</li>
 <li><p>The final value is undefined.</p>
-<p>For ex. $G(s) = \frac{1}{s^2+4}$
- FVT: $\lim\limits_{s \rightarrow 0} \frac{s}{s^2+4}=0$</p>
+<p>For ex. $$G(s) = \frac{1}{s^2+4}$$
+ FVT: $$\lim\limits_{s \rightarrow 0} \frac{s}{s^2+4}=0$$</p>
 </li>
 <li>The FVT produces the wrong value if you use it.</li>
 </ul>
@@ -133,17 +135,17 @@ nb_path: "07_Final_value_theorem_and_steady_state_error.ipynb"
 </ul>
 <ul>
 <li><p><strong>Left Half Plane (Real &lt; 0):</strong> In this case, the impulse response of the system is stable and eventually will go to zero.</p>
-<p>For ex. $G(s) = \frac{1}{s+2}$
-   FVT: $\lim\limits_{s \rightarrow 0} \frac{s}{s+2}=0$</p>
+<p>For ex. $$G(s) = \frac{1}{s+2}$$
+   FVT: $$\lim\limits_{s \rightarrow 0} \frac{s}{s+2}=0$$</p>
 <ul>
 <li>The FVT produces the correct value. Note that the value will be zero for every transfer function with poles only in the left half plane.</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><p><strong>The Origin:</strong> In this case we are looking at a system like the integrator</p>
-<p>For ex. $G(s) = \frac{1}{s}$
-   FVT: $\lim\limits_{s \rightarrow 0} \frac{s}{s}=1$</p>
+<li><p><strong>The Origin:</strong> In this case we are looking at a system like the integrator and the impulse response of an integrator is the integral of the impulse, which is 1.</p>
+<p>For ex. $$G(s) = \frac{1}{s}$$
+   FVT: $$\lim\limits_{s \rightarrow 0} \frac{s}{s}=1$$</p>
 <ul>
 <li>The FVT produces the correct value. </li>
 </ul>
@@ -185,6 +187,12 @@ nb_path: "07_Final_value_theorem_and_steady_state_error.ipynb"
 <tr>
 <td> <img src="img/56.types_response.png" alt="56.types_response.png" style="width: 750px;"/> </td>
 </tr>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Recap">Recap<a class="anchor-link" href="#Recap"> </a></h3>
 </div>
 </div>
 </div>
@@ -241,7 +249,7 @@ $$ G(0) = \lim\limits_{s \rightarrow 0} s \frac{1}{s}\frac{1}{s+1} = 1$$
 <ul>
 <li>$\large y(t) = 1-e^{-t}$</li>
 </ul>
-<p>We get:</p>
+<p>And if we plot it:</p>
 
 </div>
 </div>
@@ -294,7 +302,7 @@ $$ G(0) = \lim\limits_{s \rightarrow 0} s \frac{1}{s}\frac{1}{s+1} = 1$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's now consider the same system, but with a different input:</p>
 <ul>
-<li>$\large u(t) = 1(t)$ (a step input)</li>
+<li>$\large u(t) = 1(t)$ - a step input</li>
 <li>$\large U(s) = \frac{1}{s}$</li>
 </ul>
 <p>When we do this, we are adding another pole at the origin:</p>
@@ -337,7 +345,7 @@ $$ G(0) = \lim\limits_{s \rightarrow 0} s \frac{1}{s}\frac{1}{s^2+s} = \inf$$
 <li><p>However, if the system is correctly designed we want $Y(s) \rightarrow U(s)$, so the output follows the input as closely as possible</p>
 <ul>
 <li>e.g. We input a ramp, we would expect a ramp at the output.</li>
-<li>In this case the final value theorem would give us $\large \inf$, but regardless what information have we gained?</li>
+<li>In this case the final value theorem would give us $\large \infty$, but regardless what information have we gained?</li>
 </ul>
 </li>
 <li><p>Instead, we design feedback control systems to drive the <em>error</em> between the reference input and the output to zero.</p>
@@ -384,9 +392,10 @@ $$E_{ss} = \lim \limits_{s\rightarrow0} s\frac{U(s)}{1+G(s)}$$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can now figure out what the steady state error is replacing $U(s)$ with the appropriate input we want to study the response of (e.g. $\frac{1}{s}, \frac{1}{s^2}$).</p>
-<p>The same observations we did before apply: depending on the input we are adding poles at the origin, and hence increasing the type of the system.</p>
+<p>We can now figure out what the steady state error is replacing $U(s)$ with the appropriate input we want to study the response of (e.g. 1 (impulse) $\frac{1}{s}$ (step), $\frac{1}{s^2}$ (ramp)).</p>
+<p>The same observations we did before apply:</p>
 <ul>
+<li>Depending on the input we are adding poles at the origin, and hence increasing the type of the system. </li>
 <li>This means that the system might not be able to follow you inputs perfectly.</li>
 <li>This depends on the design specifications and we might need to change the controller<ul>
 <li>More on this later, for now you might need to modify the system adding a zero at the origin.</li>

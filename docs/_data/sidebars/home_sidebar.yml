@@ -34,8 +34,14 @@ entries:
       title: Final Value Theorem and Steady State Error
       url: Final_value_theorem_and_steady_state_error.html
     - output: web,pdf
+      title: SISO Loop Shaping
+      url: Main_types_of_loops_and_transfer_functions.html
+    - output: web,pdf
       title: Routh-Hurwitz Criterion
       url: Routh_hurwitz_criterion.html
+    - output: web,pdf
+      title: Nyquist Stability Criterion
+      url: Nyquist_stability_criterion.html
     - output: web,pdf
       title: Simulating a simple pendulum
       url: Simple_pendulum.html
