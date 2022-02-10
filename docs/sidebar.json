@@ -11,9 +11,15 @@
     "Final Value Theorem and Steady State Error": "Final_value_theorem_and_steady_state_error.html",
     "SISO Loop Shaping": "Main_types_of_loops_and_transfer_functions.html",
     "Routh-Hurwitz Criterion": "Routh_hurwitz_criterion.html",
+    "Part 1 Recap": "Part_1_recap.html",
     "Nyquist Stability Criterion": "Nyquist_stability_criterion.html",
+    "Gain and Phase Margines": "Stability_Margins.html",
+    "Controller design: Loop analysis and shaping": "Loop-shaping.html",
+    "Root Locus": "root_locus.html",
     "Simulating a simple pendulum": "Simple_pendulum.html",
     "DC Motor": "DC_motor.html",
-    "Workspace": "workspace.html"
+    "Workspace": "workspace.html",
+    "Assignment Part 1": "A_assignment_part_1.html",
+    "Assignment Part 1 Solution": "A_assignment_part_1_solution.html"
   }
 }

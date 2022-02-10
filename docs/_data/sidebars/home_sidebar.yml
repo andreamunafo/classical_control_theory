@@ -40,8 +40,20 @@ entries:
       title: Routh-Hurwitz Criterion
       url: Routh_hurwitz_criterion.html
     - output: web,pdf
+      title: Part 1 Recap
+      url: Part_1_recap.html
+    - output: web,pdf
       title: Nyquist Stability Criterion
       url: Nyquist_stability_criterion.html
+    - output: web,pdf
+      title: Gain and Phase Margines
+      url: Stability_Margins.html
+    - output: web,pdf
+      title: 'Controller design: Loop analysis and shaping'
+      url: Loop-shaping.html
+    - output: web,pdf
+      title: Root Locus
+      url: root_locus.html
     - output: web,pdf
       title: Simulating a simple pendulum
       url: Simple_pendulum.html
@@ -51,6 +63,12 @@ entries:
     - output: web,pdf
       title: Workspace
       url: workspace.html
+    - output: web,pdf
+      title: Assignment Part 1
+      url: A_assignment_part_1.html
+    - output: web,pdf
+      title: Assignment Part 1 Solution
+      url: A_assignment_part_1_solution.html
     output: web
     title: classical_control_theory
   output: web
