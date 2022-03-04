@@ -38,7 +38,7 @@ nb_path: "11_Nyquist_stability_criterion.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's consider a typical open loop control system:</p>
+<p>Let's consider a typical open loop control system, with plant $G(s)$ and controller $H(s)$:</p>
 <tr>
 <td> <img src="img/typical-control-system-1.png" alt="typical-control-system" style="width: 500px;"/> </td>
 </tr>
@@ -676,7 +676,7 @@ $$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The following Python code, demonstrates how the mapping works:</p>
+<p>The following Python code, demonstrates how the mapping works for the following cases:</p>
 <ul>
 <li>one pole encircled by the contour in the s-plane</li>
 <li>one zero encircled by the contour in the s-plane</li>
@@ -687,6 +687,7 @@ $$
 </ul>
 </li>
 </ul>
+<p>Comment and uncomment the various parts to see how points in the s-plane are mapped into points in the $\Omega$-plane.</p>
 <p>And of course, you can change the code below to experiment yourself!</p>
 
 </div>
@@ -708,7 +709,7 @@ $$
 
 
 <span class="c1">################################</span>
-<span class="c1"># Demonstrated for cases 1, 2, 3</span>
+<span class="c1"># The first three contours have been demonstrated in class for cases 1, 2, 3 below</span>
 <span class="c1"># 1. First contour: no point goes around a pole or a zero</span>
 <span class="c1"># contour = 1</span>
 <span class="c1"># xoff = -2 #-0.75  # X-offset of the contour</span>
@@ -727,9 +728,8 @@ $$
 <span class="c1"># yoff = 2.5;   # Y-offset of the contour</span>
 <span class="c1"># angles = np.linspace(np.pi, -np.pi, 160);     # Generate angles around the circle; 160 is tje Number of points around the circular contour</span>
 
-
 <span class="c1">################################</span>
-<span class="c1"># Demonstrated for simpler transfer functions, cases 4, 5 and 6</span>
+<span class="c1"># Contours 4 and 5 have been demonstrated in class for simpler transfer functions, for cases 4, 5 and 6</span>
 <span class="c1"># 4. Fourth contour: goes around a zero (ex.)</span>
 <span class="n">contour</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">xoff</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>   <span class="c1"># X-offset of the contour</span>
@@ -744,7 +744,7 @@ $$
 <span class="c1">################################</span>
 
 
-    
+<span class="c1"># define the points in the countour based on the parameters of the countours defined above    </span>
 <span class="n">pt</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span><span class="o">+</span><span class="n">xoff</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span><span class="o">+</span><span class="n">yoff</span><span class="p">];</span> 
 
 <span class="k">def</span> <span class="nf">animate_plot</span><span class="p">(</span><span class="nb">bin</span><span class="p">):</span>    
@@ -810,7 +810,7 @@ $$
     <span class="n">line_1</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">tnf</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">tnf</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">15</span><span class="p">);</span>
     <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">15</span><span class="p">);</span>
     <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$\Omega$-plane Plot&#39;</span><span class="p">);</span>
-    
+    <span class="c1"># Sets the axis limits    </span>
     <span class="k">if</span> <span class="n">contour</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">contour</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">.5</span><span class="p">])</span>
         <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">.5</span><span class="p">]);</span>    
@@ -819,9 +819,7 @@ $$
         <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]);</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-        <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]);</span>
-        
-        
+        <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]);</span>       
 
     <span class="k">return</span> <span class="n">line_0</span><span class="p">,</span> <span class="n">line_1</span>
 
@@ -841,10 +839,10 @@ $$
 
 
 
-<div id="46f9e13c-c91b-42f2-a3c9-8af6b001097a"></div>
+<div id="ee39797c-e1da-4368-9a10-d2bee1f7daaa"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#46f9e13c-c91b-42f2-a3c9-8af6b001097a');
+var element = $('#ee39797c-e1da-4368-9a10-d2bee1f7daaa');
 /* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
@@ -1922,10 +1920,10 @@ if (IPython.notebook.kernel !== null) {
 
 
 
-<div id="c4cccef7-3dc2-4adc-a1c5-6c3fa6da6278"></div>
+<div id="08a8771a-7936-44dd-b66f-34157b8c40b1"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#c4cccef7-3dc2-4adc-a1c5-6c3fa6da6278');
+var element = $('#08a8771a-7936-44dd-b66f-34157b8c40b1');
 /* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
@@ -2992,10 +2990,10 @@ if (IPython.notebook.kernel !== null) {
 
 
 
-<div id="85c93d60-c646-44d5-9d65-ce482f10c8b6"></div>
+<div id="d55f9c6b-2be5-49f2-b024-e53aa43ba2db"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#85c93d60-c646-44d5-9d65-ce482f10c8b6');
+var element = $('#d55f9c6b-2be5-49f2-b024-e53aa43ba2db');
 /* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
@@ -4065,10 +4063,10 @@ if (IPython.notebook.kernel !== null) {
 
 
 
-<div id="bbce95c7-63fb-48ee-af98-24ce4ea88d7a"></div>
+<div id="4aa9160b-5211-40c5-9e5b-63611dc2653c"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#bbce95c7-63fb-48ee-af98-24ce4ea88d7a');
+var element = $('#4aa9160b-5211-40c5-9e5b-63611dc2653c');
 /* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
@@ -5149,10 +5147,10 @@ if (IPython.notebook.kernel !== null) {
 
 
 
-<div id="22454fb3-acc3-4856-a1c2-ecfce55ba949"></div>
+<div id="7f7e315f-767c-4858-93da-22e7a3cf1db0"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#22454fb3-acc3-4856-a1c2-ecfce55ba949');
+var element = $('#7f7e315f-767c-4858-93da-22e7a3cf1db0');
 /* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
@@ -6256,10 +6254,10 @@ if (IPython.notebook.kernel !== null) {
 
 
 
-<div id="0639b132-337e-4b1b-8640-39fc75e86e35"></div>
+<div id="2674a8a7-094b-49de-8dc9-3659748e5cb5"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#0639b132-337e-4b1b-8640-39fc75e86e35');
+var element = $('#2674a8a7-094b-49de-8dc9-3659748e5cb5');
 /* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
@@ -7299,7 +7297,7 @@ if (IPython.notebook.kernel !== null) {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="The-Nyquist-plot">The Nyquist plot<a class="anchor-link" href="#The-Nyquist-plot"> </a></h3><ul>
 <li>We can now apply the Cauchy's principle argument </li>
-<li><p>We would like to know if there are zeros of $1+GH=0$ in the right half plane (in which case the system is unstable)</p>
+<li><p>We would like to know if there are zeros of $1+GH$ in the right half plane (in which case the system is unstable)</p>
 </li>
 <li><p>We need a contour that includes the entire right half plane:</p>
 <ul>
@@ -7595,7 +7593,7 @@ $$</p>
 <p><strong>To conclude</strong></p>
 <ul>
 <li>Since the entire case 2) is mapped to a single point, that means that we can simply use the point at $+\infty$ on the positive $j\omega$ axis,</li>
-<li>Due to symmetry we also do not need to worry of the negative $\omega$,</li>
+<li>Due to symmetry of poles and zeros about the real axis, we also do not need to worry of the negative $\omega$,</li>
 <li>We need to only study and plot the positive $\omega$</li>
 </ul>
 
@@ -7617,12 +7615,12 @@ $$</p>
 <li>Draw the reflection about the real axis to account for negative $\omega$</li>
 </ol>
 </li>
-<li><p>Note that the Nyquist contour is traced in the clock-wise direction (by convention)</p>
+<li><p>Note that the Nyquist contour is traced in the <strong>clock-wise</strong> direction (by convention)</p>
 </li>
 </ul>
 <p>Key is step #2:</p>
 <ul>
-<li>For simple transfer functions there are only four points that we need to solve for (we can deduce the rest)<ul>
+<li>For simple transfer functions there are only four points that we need to solve for<ul>
 <li><ol>
 <li>$|G|$ and $\angle G$ at $\omega=0$ (start of the plot)</li>
 </ol>
@@ -7642,7 +7640,8 @@ $$</p>
 </ul>
 </li>
 </ul>
-<p>If only stability has to be investigated typically these steps are enough.</p>
+<p>Having these points is typically enough if we are interested in the stability only. From these points we can deduce the rest of the diagram.</p>
+<p>For more complex transfer functions, steps 3 and 4 might become complicated. In those cases, it is probably simpler to use the <code>Python Control Library</code> or MATLAB.</p>
 
 </div>
 </div>
@@ -7660,15 +7659,13 @@ $$<ul>
 <li><ol>
 <li><p>$\frac{1}{(j\omega)^2+3(j\omega)+2} |_{\omega=\infty}=\frac{1}{\infty}=0$ (strictly proper transfer function), $\angle =-180$</p>
 <ul>
-<li>note that when we analyse the point $\omega = \infty$, the phase is $e^{-j2\theta}$ (this is easy to see if we look at the original transfer function and substitute the generic point: $s=Re^{j\theta})$.</li>
+<li>note that for this transfer function, when we analyse the point $\omega = \infty$, the phase is $e^{-j2\theta}$, $\theta=\pi/2$. This is easy to see if we look at the original transfer function and substitute the generic point: $s=Re^{j\theta}$ and we note that $s^2$ dominates the espression.</li>
 </ul>
 </li>
 </ol>
 </li>
 </ul>
-<ul>
-<li>To do steps 3 and 4 and find the intersections, it is easier to convert our $G(s)|_{s=j\omega}$ to a $x+jy$ vector to explicit the real and imaginary components:</li>
-</ul>
+<p>To do steps 3 and 4 and find the intersections, it is easier to convert our $G(s)|_{s=j\omega}$ to a $x+jy$ vector to explicit the real and imaginary components:</p>
 $$
 \frac{1}{(j\omega)^2+3(j\omega)+2} = \frac{1}{(2-\omega)^2 + 3\omega j} \frac{(2-\omega)^2 - 3\omega j}{(2-\omega)^2 - 3\omega j} = \frac{(2-\omega)^2 - 3\omega j}{(2-\omega)^2 - 9\omega^2}
 $$<ul>
@@ -7687,7 +7684,8 @@ $$<ul>
 </ul>
 $$
 \frac{- 3\omega j}{(2-\omega)^2 - 9\omega^2} = 0 \Rightarrow \omega=0\; \text{,}\; \omega=\infty
-$$<p>We found those points already in points 1 and 2 and it only crosses the real axis at start of the plot and at the mid point of the plot.</p>
+$$<p>We found points $\omega=0\; \text{,}\; \omega=\infty$ already in points 1 and 2.</p>
+<p>It means that the plot only crosses the real axis at the start and at the mid point of the plot.</p>
 
 </div>
 </div>
@@ -7838,7 +7836,7 @@ $$<ul>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When we modify the contour is clear that:</p>
+<p>Going back to our original transfer function $\Large \frac{1}{s}$, when we modify the contour is clear that:</p>
 <ul>
 <li>Gain is still infinity (we are still dividing by a very small number)</li>
 <li>Phase clearly sweeps between $[-90, 90]$</li>
@@ -7922,6 +7920,7 @@ $$<ul>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>With can then conclude:</p>
 <ul>
 <li>No OL poles in the RHP and no encirclement of the point -1, so the closed loop system is stable.</li>
 <li>Python control library does not really do a good job to represent it so we need to be careful when interpreting the plot.</li>
@@ -8054,7 +8053,15 @@ s^5 + 1.825 s^4 + 2.941 s^3 + 0.03508 s^2 + 0.01522 s - 1.245e-15
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can verify that we have one unstable open loop pole</p>
+<p>We would like to improve its performance using unitary feedback.</p>
+<p>We can note that the open loop system is unstable, because there is a change in sign in the characteristic equation.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And then we can also verify it with Python:</p>
 
 </div>
 </div>
