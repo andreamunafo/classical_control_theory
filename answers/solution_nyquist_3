@@ -1,0 +1,4 @@
+
+* Yes. The closed loop system is stable
+* No open loop unstable poles (open loop poles are s=-1, s=-2)
+* There are no encirclements of the point -1

@@ -1,0 +1,4 @@
+
+* Circles the origin once in the clockwise direction, so there must be one more zero than poles inside the contour
+
+* It is important to note that we can only tell about the relative difference between poles and zeros
