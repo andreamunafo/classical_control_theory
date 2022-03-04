@@ -53,7 +53,7 @@ entries:
       url: Loop-shaping.html
     - output: web,pdf
       title: Root Locus
-      url: root_locus.html
+      url: Root_locus.html
     - output: web,pdf
       title: Simulating a simple pendulum
       url: Simple_pendulum.html
@@ -69,6 +69,9 @@ entries:
     - output: web,pdf
       title: Assignment Part 1 Solution
       url: A_assignment_part_1_solution.html
+    - output: web,pdf
+      title: Title
+      url: B_Tools.html
     output: web
     title: classical_control_theory
   output: web
