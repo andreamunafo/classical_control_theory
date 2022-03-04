@@ -20,7 +20,8 @@ index = {"Car": "02_Intro_to_control_theory.ipynb",
          "MotorController": "90_Simple_pendulum.ipynb",
          "AnimateControlledPendulum": "91_DC_motor.ipynb",
          "PID": "91_DC_motor.ipynb",
-         "Simulator": "91_DC_motor.ipynb"}
+         "Simulator": "91_DC_motor.ipynb",
+         "hide_toggle": "B_Tools.ipynb"}
 
 modules = ["intro_to_control_theory.py",
            "transfer_functions.py",
@@ -33,7 +34,8 @@ modules = ["intro_to_control_theory.py",
            "root_locus.py",
            "simple_pendulum.py",
            "dc_motor.py",
-           "workspace.py"]
+           "workspace.py",
+           "tools.py"]
 
 doc_url = "https://andreamunafo.github.io/classical_control_theory/"
 
