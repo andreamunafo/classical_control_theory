@@ -46,7 +46,7 @@ entries:
       title: Nyquist Stability Criterion
       url: Nyquist_stability_criterion.html
     - output: web,pdf
-      title: Gain and Phase Margines
+      title: Gain and Phase Margins
       url: Stability_Margins.html
     - output: web,pdf
       title: 'Controller design: Loop analysis and shaping'

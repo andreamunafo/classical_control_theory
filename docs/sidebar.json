@@ -13,7 +13,7 @@
     "Routh-Hurwitz Criterion": "Routh_hurwitz_criterion.html",
     "Part 1 Recap": "Part_1_recap.html",
     "Nyquist Stability Criterion": "Nyquist_stability_criterion.html",
-    "Gain and Phase Margines": "Stability_Margins.html",
+    "Gain and Phase Margins": "Stability_Margins.html",
     "Controller design: Loop analysis and shaping": "Loop-shaping.html",
     "Root Locus": "Root_locus.html",
     "Simulating a simple pendulum": "Simple_pendulum.html",
