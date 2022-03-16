@@ -9,7 +9,7 @@
     "System Response": "System_response.html",
     "Introduction to Frequency Response Methods: Bode Plots": "Intro_to_freq_response_and_bode_plots.html",
     "Final Value Theorem and Steady State Error": "Final_value_theorem_and_steady_state_error.html",
-    "SISO Loop Shaping": "Main_types_of_loops_and_transfer_functions.html",
+    "Main types of loops and transfer functions": "Main_types_of_loops_and_transfer_functions.html",
     "Routh-Hurwitz Criterion": "Routh_hurwitz_criterion.html",
     "Part 1 Recap": "Part_1_recap.html",
     "Nyquist Stability Criterion": "Nyquist_stability_criterion.html",

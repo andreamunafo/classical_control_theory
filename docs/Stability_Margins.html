@@ -141,7 +141,7 @@ $$
 G_{c}(s) = \frac{G(s)}{1+G(s)}
 $$<ul>
 <li>$G_{c}(s)$ must have a pole in the RHP</li>
-<li>For this to happen we know that $1+G(s)=0$ or $G(s)=-1$</li>
+<li>For this to happen we know that $1+G(s)=0$ or $G(s)=-1 \Rightarrow G_c(s) \rightarrow \infty$ </li>
 <li><p>We should keep our open loop $G(s)$ away from -1 then!</p>
 </li>
 <li><p>We saw this already with Nyquist</p>
@@ -820,12 +820,12 @@ Phase Margin 69.77 (deg) at frequency (rad/sec) 0.41
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We saw that the sensitivity function is:</p>
 $$
-S(s) = \frac{1}{1+RG}
+S(s) = \frac{1}{1+GR}
 $$<ul>
 <li>Describes how feedback influences the disturbances</li>
-<li>If $|RG|$ is large at frequencies where the power of the disturbance is concentrated, then $|S|$ is small and the effect of the disturbance on the output is attenuated</li>
+<li>If $|GR|$ is large at frequencies where the power of the disturbance is concentrated, then $|S|$ is small and the effect of the disturbance on the output is attenuated</li>
 <li>Lower values of $|S|$ means higher attenuation of the external disturbance.</li>
-<li>Typically, plan disturbances are low frequency, and one would like $|RG|$ to be large at low frequency</li>
+<li>Typically, plan disturbances are low frequency, and one would like $|GR|$ to be large at low frequency</li>
 </ul>
 <p>See notebook <code>08_Main_types_of_loops_and_transfer_functions</code>.</p>
 
@@ -836,7 +836,7 @@ $$<ul>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can also define the <em>Nominal Sensitivity Peak</em>:</p>
 $$
-M_s = \max_{0 \leq \omega \leq \infty} | S(j\omega) | = \max_{0 \leq \omega \leq \infty} \Big| \frac{1}{1+R(j\omega)G(j\omega)} \Big|
+M_s = \max_{0 \leq \omega \leq \infty} | S(j\omega) | = \max_{0 \leq \omega \leq \infty} \Big| \frac{1}{1+G(j\omega)R(j\omega)} \Big|
 $$
 </div>
 </div>
@@ -845,17 +845,17 @@ $$
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Closest-point-of-the-Nyquist-plot-to--1">Closest point of the Nyquist plot to -1<a class="anchor-link" href="#Closest-point-of-the-Nyquist-plot-to--1"> </a></h3><ul>
 <li>This is the point that is most in danger of causing instability</li>
-<li>Rember that the Nyquist plot shows the open loop transfer function: $R(j\omega)G(j\omega)$</li>
-<li>We want to calculate the minimum distance between -1 and the curve $R(j\omega)G(j\omega)$: </li>
+<li>Rember that the Nyquist plot shows the open loop transfer function: $G(j\omega)R(j\omega)$</li>
+<li>We want to calculate the minimum distance between -1 and the curve $G(j\omega)R(j\omega)$: </li>
 </ul>
 $$
-d = \min(|R(j\omega)G(j\omega) - (-1)|)
+d = \min(|G(j\omega)R(j\omega) - (-1)|)
 $$<ul>
 <li>Note that if we use the metric above, we have something that tells us <em>the smaller the number is the larger its sensitivity to variations</em> (similar to robustness)</li>
 <li>If we take the reciprocal insted we have a metric such that <em>the larger it is, the larger the sensitivity</em></li>
 </ul>
 $$
-\max_{-\infty &lt; \omega &lt; \infty} \Big| \frac{1}{R(j\omega)G(j\omega) +1} \Big|
+\max_{-\infty &lt; \omega &lt; \infty} \Big| \frac{1}{G(j\omega)R(j\omega) +1} \Big|
 $$
 </div>
 </div>
