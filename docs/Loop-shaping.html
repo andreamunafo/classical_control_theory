@@ -50,7 +50,13 @@ nb_path: "13_Loop-shaping.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Feedback-Goals">Feedback Goals<a class="anchor-link" href="#Feedback-Goals"> </a></h2><ul>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Feedback-Goals">Feedback Goals<a class="anchor-link" href="#Feedback-Goals"> </a></h3><ul>
 <li>Stability of the closed loop system</li>
 <li>Performance while tracking inputs<ul>
 <li>tracking error, typically specified in terms of steady state error to specific inputs:<ul>
@@ -68,16 +74,9 @@ nb_path: "13_Loop-shaping.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>See also <code>06_Intro_to_freq_response_and_bode_plots</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can design the behavior of the closed loop system by focusing on the open loop transfer function.</p>
+<p>We can design the behavior of the closed loop system focusing on the open loop transfer function.</p>
 <p>Observation:</p>
-<blockquote><p>This same approach was used in studying stability using the Nyquist criterion:we plotted the Nyquist plot for the open loop transfer function to determine the stability of the closed loop system.</p>
+<blockquote><p>This approach was also used in studying stability using the Nyquist criterion:we plotted the Nyquist plot for the open loop transfer function to determine the stability of the closed loop system.</p>
 </blockquote>
 
 </div>
@@ -444,9 +443,9 @@ $$<ul>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Key point:</p>
 <ul>
-<li>I can shape the loop T.F. $L$</li>
-<li>There is a $R$ that gives the shape I like</li>
-<li>When I use the $R$ as controller I should get good system performance</li>
+<li>We can shape the loop transfer function $L$</li>
+<li>There is a $R$ that gives the shape we like</li>
+<li>When we use the $R$ as controller we should get good system performance</li>
 </ul>
 
 </div>
@@ -469,7 +468,7 @@ $$<ul>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="n">car_tf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">car</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">car_tf</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -886,7 +885,7 @@ $$</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's go back to our system</p>
+<p>Let's go back to our system once more:</p>
 
 </div>
 </div>
@@ -904,11 +903,11 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 $$
-H(s) = \frac{R(s)G(s)}{1+R(s)G(s)} = \frac{L(s)}{1+L(s)}
+H(s) = \frac{G(s)R(s)}{1+R(s)G(s)} = \frac{L(s)}{1+L(s)}
 $$<ul>
 <li>The "+" sign at the denominstator depends on the summation node in the feedback loop</li>
 <li>However, $L(s)$ has magnitude and <em>phase</em>: when the phase is &lt; -180 this is equivalent to summing reference input and measured output</li>
-<li>The feedback loop can only sustain the change in sign if the $L(s)$ &lt; 1 (we saw this with Nyquist).</li>
+<li>The feedback loop can only sustain the change in sign if the $L(s)$ &lt; 1 (see also Nyquist).</li>
 </ul>
 
 </div>
@@ -918,11 +917,11 @@ $$<ul>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Closed-loop-stability---Case-1">Closed loop stability - Case 1<a class="anchor-link" href="#Closed-loop-stability---Case-1"> </a></h2><ul>
 <li>$L(j\omega)$</li>
-<li><p>Given $\omega_{gc} : |L(j\omega)|=1$</p>
+<li><p>Given $\omega_{gc} : |L(j\omega_{gc})|=1$</p>
 </li>
 <li><p>$|L(j\omega)| &gt; 1$, for $\omega &lt; \omega_{gc} $, and $|L(j\omega)| &lt; 1$, for $\omega &gt; \omega_{gc} $,</p>
 </li>
-<li><p>if $\angle L(j\omega) &gt; -180$, then $H=\frac{L(s)}{1+L(s)}$ is BIBO stable</p>
+<li><p>if $\angle L(j\omega_{gc}) &gt; -180$, then $H=\frac{L(s)}{1+L(s)}$ is BIBO stable</p>
 </li>
 <li><p><em>When the magnitude plot crosses 0dB then phase must be &gt; -180$^o$</em></p>
 </li>
@@ -997,7 +996,7 @@ $$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Or in the frequency domain:</p>
 $$
-E(j\omega) = \frac{1}{1+L(j\omega)}Y_{ref}(s)
+E(j\omega) = \frac{1}{1+L(j\omega)}Y_{ref}(j\omega)
 $$<ul>
 <li><p>Analysing the behaviour of $e$ for $t \rightarrow \infty$, means analysing $E(j\omega)$ for $\omega \rightarrow  0 $.</p>
 </li>
@@ -1073,9 +1072,14 @@ $$
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
+<span class="c1"># Open Loop T.F. L(s)</span>
 <span class="n">mag_ol</span><span class="p">,</span> <span class="n">phase_ol</span><span class="p">,</span> <span class="n">omega_ol</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="mi">1000</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">10</span><span class="p">]),</span> <span class="n">dB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+
+<span class="c1"># Close Loop T.F. H(s)</span>
 <span class="n">mag_cc</span><span class="p">,</span> <span class="n">phase_cc</span><span class="p">,</span> <span class="n">omega_cc</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">bode</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="mi">1000</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">10</span><span class="o">+</span><span class="mi">1000</span><span class="p">]),</span> <span class="n">dB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
 
+
+<span class="c1">## Plot additional information on the Bode Plots</span>
 <span class="c1"># bandwidth</span>
 <span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">axes</span>     <span class="c1"># get subplot axes</span>
 
@@ -1122,13 +1126,23 @@ $$
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Mid-Frequency-approximation-of-H-and-phase-margin">Mid-Frequency approximation of H and phase margin<a class="anchor-link" href="#Mid-Frequency-approximation-of-H-and-phase-margin"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li><p>From the discussions above, we have that:
-$|L(j\omega)| \approx 1$ in the mid-frequency range, and we call <em>gain crossover frequency $\omega</em>{gc}$_ where L(j\omega) crosses 0dB.</p>
+$|L(j\omega)| \approx 1$ in the mid-frequency range, and we call <em>gain crossover frequency $\omega</em>{gc}$_ where $L(j\omega)$ crosses 0dB.</p>
 </li>
 <li><p>Assuming a dominant pole approximation, we expect $H$ to behave similarly to a first-order or a second-order system.</p>
 <ul>
-<li>This can <strong>empirically</strong> be determined from the phase margin ($\phi_m &gt; 75^o$, first order, otherwise second order). </li>
+<li>This can <strong>empirically</strong> be determined from the phase margin <ul>
+<li>$\phi_m &gt; 75^o \Rightarrow$ first order (single real pole)</li>
+<li>$\phi_m \le 75^o \Rightarrow$ second order (two complex conjugate poles)</li>
+</ul>
+</li>
 <li>Empirically means that must be verified through simulation/experiments but it is useful to kick off the analysis</li>
 </ul>
 </li>
@@ -1324,7 +1338,7 @@ $$E_{ss} = \lim \limits_{s\rightarrow0} s\frac{U(s)}{1+G(s)} = s \frac{1}{1+\fra
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;G: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
 
 <span class="c1"># Controller</span>
-<span class="n">K</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># K&gt;0.2 is our constraint</span>
 <span class="n">R</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="n">K</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
 
@@ -1373,7 +1387,8 @@ s^4 + 0.2 s^3 + 10.01 s^2 + s
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can now plot the Bode plots.</p>
 <ul>
-<li>note that we are plotting both $L$ and $H$, but we are really interested in understanding how to shape $L$ so that $H$ behaves as we want: $H$ is there as a reference.</li>
+<li>We plot both $L$ and $H$, but we are only interested in understanding how to shape $L$ so that $H$ behaves as we want</li>
+<li>In plot $H$ is used as a reference.</li>
 </ul>
 
 </div>
@@ -1388,9 +1403,14 @@ s^4 + 0.2 s^3 + 10.01 s^2 + s
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
+<span class="c1"># Loop Transfer Function L=GR</span>
 <span class="n">mag_ol</span><span class="p">,</span> <span class="n">phase_ol</span><span class="p">,</span> <span class="n">omega_ol</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">G</span><span class="p">,</span> <span class="n">dB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+
+<span class="c1"># Close Loop H</span>
 <span class="n">mag_cc</span><span class="p">,</span> <span class="n">phase_cc</span><span class="p">,</span> <span class="n">omega_cc</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">bode</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">dB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
 
+
+<span class="c1">## Add more information on the plot</span>
 <span class="c1"># bandwidth</span>
 <span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">axes</span>     <span class="c1"># get subplot axes</span>
 
@@ -1626,7 +1646,10 @@ s^4 + 10.2 s^3 + 6.01 s^2 + 0.5 s
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
+<span class="c1"># Loop Transfer Function L=GR</span>
 <span class="n">mag_ol</span><span class="p">,</span> <span class="n">phase_ol</span><span class="p">,</span> <span class="n">omega_ol</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">G</span><span class="p">,</span> <span class="n">dB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+
+<span class="c1"># Close Loop H</span>
 <span class="n">mag_cc</span><span class="p">,</span> <span class="n">phase_cc</span><span class="p">,</span> <span class="n">omega_cc</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">bode</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">dB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
 
 <span class="c1"># bandwidth</span>
@@ -1934,10 +1957,16 @@ s^4 + 10.2 s^3 + 6.01 s^2 + 0.5 s
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
+<span class="c1"># Loop Transfer Function L=GR</span>
 <span class="n">mag_ol</span><span class="p">,</span> <span class="n">phase_ol</span><span class="p">,</span> <span class="n">omega_ol</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">G</span><span class="p">,</span> <span class="n">dB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+
+<span class="c1"># Sensitivy function S</span>
 <span class="n">mag_s</span><span class="p">,</span> <span class="n">phase_s</span><span class="p">,</span> <span class="n">omega_s</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">bode</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">dB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+
+<span class="c1"># Complementary Sensitivity T (which also corresponds to the closed loop H)</span>
 <span class="n">mag_t</span><span class="p">,</span> <span class="n">phase_t</span><span class="p">,</span> <span class="n">omega_t</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">bode</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">dB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
 
+<span class="c1">### Add more information on the plots</span>
 <span class="c1"># bandwidth</span>
 <span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">axes</span>     <span class="c1"># get subplot axes</span>
 
@@ -2011,8 +2040,11 @@ $$<ul>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
+<span class="c1"># Loop Transfer Function L=GR</span>
 <span class="n">mag_ol</span><span class="p">,</span> <span class="n">phase_ol</span><span class="p">,</span> <span class="n">omega_ol</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">G</span><span class="p">,</span> <span class="n">dB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
 
+
+<span class="c1">### Add more information on the plot</span>
 <span class="c1"># bandwidth</span>
 <span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">axes</span>     <span class="c1"># get subplot axes</span>
 
@@ -2154,9 +2186,13 @@ $$<ul>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
+<span class="c1"># Loop Transfer Function L=GR</span>
 <span class="n">mag_ol</span><span class="p">,</span> <span class="n">phase_ol</span><span class="p">,</span> <span class="n">omega_ol</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">G</span><span class="p">,</span> <span class="n">dB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
 
+
+<span class="c1">#### Add more information on the plots</span>
 <span class="c1"># bandwidth</span>
+
 <span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">axes</span>     <span class="c1"># get subplot axes</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">ax1</span><span class="p">)</span>                 <span class="c1"># magnitude plot</span>
@@ -2228,7 +2264,7 @@ $$<ul>
     <td> <img src="img/system-generic.png" alt="system-generic" style="width: 550px;"/> </td>
 </tr>
 </table>$$
-U(s) = \frac{R}{1+RG}Y_{ref}(s) = \frac{R}{1+L}Y_{ref} = Q(s)Y_{ref}
+U(s) = \frac{R}{1+GR}Y_{ref}(s) = \frac{R}{1+L}Y_{ref} = Q(s)Y_{ref}
 $$<p>where</p>
 $$
 Q(s)=\frac{R(s)}{1+L(s)}
@@ -2252,18 +2288,19 @@ $$
 $$
 |Q(j\omega)|=\frac{|R(j\omega)|}{|1+L(j\omega)|}
 $$<ul>
-<li><p>for $\omega \rightarrow 0 \Rightarrow |Q(j\omega)| \approx \frac{1}{G(j\omega)}$</p>
-<ul>
-<li>we would like $L$ big at LF</li>
+<li>for $\omega \rightarrow 0 \Rightarrow |Q(j\omega)| \approx \frac{1}{G(j\omega)}$<ul>
+<li>we would like $L$ large at low frequency</li>
 </ul>
 </li>
-<li><p>for $\omega \rightarrow \infty \Rightarrow |Q(j\omega)| \approx {R(j\omega)}$</p>
+</ul>
 <ul>
-<li>we would like $L$ small at HF</li>
+<li>for $\omega \rightarrow \infty \Rightarrow |Q(j\omega)| \approx {R(j\omega)}$<ul>
+<li>we would like $L$ small at high frequency</li>
 </ul>
 </li>
-<li><p>for $\omega = \omega_{nc} \Rightarrow |L(j\omega)| = 1 \Rightarrow |Q(j\omega)| = \frac{1}{G(j\omega)}$</p>
-</li>
+</ul>
+<ul>
+<li>for $\omega = \omega_{nc} \Rightarrow |L(j\omega)| = 1 \Rightarrow |Q(j\omega)| = \frac{1}{G(j\omega)}$</li>
 </ul>
 
 </div>
@@ -2290,16 +2327,17 @@ $$<ul>
 <li>$|L(j\omega)|$ has a larger bandwidth than the plant.</li>
 </ul>
 </li>
-<li><p>in this case:</p>
-<ul>
+<li>in this case:<ul>
 <li>$|Q(j\omega)| \approx \frac{1}{G(j\omega)} \gg 1$, for $\omega \in (\omega_{bp}, \omega_{nc})$</li>
 </ul>
 </li>
-<li><p>Enlarging the bandwidth of the plant might lead to high control values, which might not be acceptable!</p>
-</li>
-<li><strong>Take away: never extend the bandwidth too much</strong></li>
-<li>This means that we have another constraint at high frequency due to the control sensitivity:</li>
 </ul>
+<p><strong>Take away points:</strong></p>
+<ul>
+<li>Enlarging the bandwidth of the plant might lead to high control values, which might not be acceptable!</li>
+<li>Never extend the bandwidth too much</li>
+</ul>
+<p>This means that we have another constraint at high frequency due to the control sensitivity:</p>
 $$
 |L(j\omega)| &lt; \epsilon_u, \hspace{0.5cm} \text{for} \hspace{0.5cm} \omega \ge \omega_u
 $$$$
@@ -2317,10 +2355,14 @@ $$
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
+<span class="c1"># Loop Transfer Function L=GR</span>
 <span class="n">mag_ol</span><span class="p">,</span> <span class="n">phase_ol</span><span class="p">,</span> <span class="n">omega_ol</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">G</span><span class="p">,</span> <span class="n">dB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
 
-<span class="c1"># bandwidth</span>
+
+
+<span class="c1">### Add more information on the plot</span>
 <span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">axes</span>     <span class="c1"># get subplot axes</span>
+
 
 <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">ax1</span><span class="p">)</span>                 <span class="c1"># magnitude plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;$L(s)$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
