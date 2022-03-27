@@ -1,0 +1,11 @@
+Poles = -2, -4 (from the system), -6 (from the compensator)
+Zeros = -5 (from the compensator)
+
+n - m = 3 - 1 = 2
+q = 0, 1
+
+Phi_A = (2q+1)/(n-m) * 180 = 90, 270
+
+C = (sum(Finite poles)-sum(Finite zeros))/(n-m) = ((-2-4-6) - (-5) )/(2) = (-12+5)/2 = -7/2 = -3.5
+
+Note: the centroid C is not the breakaway point from the real axis.

@@ -1,0 +1,14 @@
+If beta is the angle of the pole of the compensator:
+
+tan(beta) = 2/p
+
+p = 2/tan(beta)
+
+beta = 18.43
+beta_rad = 18.43*np.pi/180 = .321
+
+p = 2/tan(beta) = 2/tan(.321) = -6.015
+
+the pole location is:
+
+s = p+4 = -10.015

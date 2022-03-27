@@ -1,0 +1,9 @@
+Angles of asymptotes:
+
+Phi_A = (2q+1)/(n-m) * 180 = 90, 270
+
+where q=0, 1, 2, ..., (n-m-1)
+
+And the centroid of the asymptotes is
+
+C = (sum(Finite poles)-sum(Finite zeros))/(n-m) = -3
