@@ -16,6 +16,7 @@
     "Gain and Phase Margins": "Stability_Margins.html",
     "Controller design: Loop analysis and shaping": "Loop-shaping.html",
     "Root Locus": "Root_locus.html",
+    "Phase Lead/Phase Lag Compensators": "Lead_lag_compensators.html",
     "Simulating a simple pendulum": "Simple_pendulum.html",
     "DC Motor": "DC_motor.html",
     "Workspace": "workspace.html",
