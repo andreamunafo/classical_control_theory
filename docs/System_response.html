@@ -1477,7 +1477,7 @@ $$G(s) = \frac{1}{\frac{s^2}{w_n^2} + \frac{2\xi}{w_n}s + 1}$$
 <p>As before, we can calculate the step reponse:</p>
 <ul>
 <li>input $$u(t)=1(t)$$</li>
-<li>output $$y(t) = 1 - \frac{1}{\sqrt{1-\xi^2}} e^{-\xi w_n t} sin( w_n\sqrt{1-\xi^2}t + arccos(\xi))$$</li>
+<li>output $$y(t) = 1 - \frac{1}{\sqrt{1-\xi^2}} e^{-\xi w_n t} \sin\Big( w_n\sqrt{1-\xi^2}t + arccos(\xi)\Big)$$</li>
 </ul>
 
 </div>
@@ -1571,6 +1571,8 @@ $$G(s) = \frac{1}{\frac{s^2}{w_n^2} + \frac{2\xi}{w_n}s + 1}$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>There are a few notable points that we can identify for the response of a second order system:</p>
 <ul>
+<li><p>Rise time (to 90%): $$t_r \approx \frac{1.8}{w_n} $$</p>
+</li>
 <li><p>Maximum overshoot: $$ S \% = 100 e^{\Large -\frac{\xi\pi}{\sqrt{1-\xi^2}}} $$</p>
 </li>
 <li><p>Time of Maximum overshoot: $$t_{max} = \frac{\pi}{w_n\sqrt{1-\xi^2}} $$</p>
@@ -1580,6 +1582,18 @@ $$G(s) = \frac{1}{\frac{s^2}{w_n^2} + \frac{2\xi}{w_n}s + 1}$$
 <li><p>Oscillation period: $$T_{P} = \frac{2\pi}{w_n\sqrt{1-\xi^2}} $$</p>
 </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can connect $\zeta$ and $w_n$ to $S, T_p, t_{max}, t_s$ with two important caveats:</p>
+<ul>
+<li>some of the relationships are approximate</li>
+<li>additional poles and zeros will change the results, so all of the results should be viewed as guidelines.</li>
+</ul>
+<p>We can obtain the previous relationships using the <em>step response</em> of $G(s)$ (see above)</p>
 
 </div>
 </div>

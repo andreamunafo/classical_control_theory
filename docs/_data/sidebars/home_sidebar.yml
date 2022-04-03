@@ -58,6 +58,9 @@ entries:
       title: Phase Lead/Phase Lag Compensators
       url: Lead_lag_compensators.html
     - output: web,pdf
+      title: PID Control
+      url: PID_Control.html
+    - output: web,pdf
       title: Simulating a simple pendulum
       url: Simple_pendulum.html
     - output: web,pdf
