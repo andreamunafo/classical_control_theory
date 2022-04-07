@@ -45,12 +45,15 @@ class LinearCar:
         self._m, self._alpha, self._beta, self._gamma = params
 
     def step(self, dt, u, theta):
+        # u: gas pedal
+        # theta: slope of the road
         self._theta = theta
         A = np.array([[0, 1], [0, -self._beta/self._m]])
         B = np.array([[0, 0], [self._gamma/self._m, -LinearCar._g]])
 
         x = np.array([[self._x_1],[self._x_2]])
         U = np.array([[u],[theta]])
+
         self._x_1 = (self._x_1 + dt*(A[0,np.newaxis,:].dot(x) + B[0,np.newaxis,:].dot(U))).item()
         self._x_2 = (self._x_2 + dt*(A[1,np.newaxis,:].dot(x) + B[1,np.newaxis,:].dot(U))).item()
 
