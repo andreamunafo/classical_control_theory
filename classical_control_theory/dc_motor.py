@@ -139,7 +139,7 @@ class Simulator():
             torque = self._motor.step(dt, u)
             self._pendulum.step(dt, u=torque)
 
-            self._data['error (m)'].append(np.radians(self.y_des) \
+            self._data['error (rad)'].append(np.radians(self.y_des) \
                                            - self._pendulum.position())
             self._data['position (rad)'].append(self._pendulum.position())
             self._data['speed (rad/s)'].append(self._pendulum.speed())

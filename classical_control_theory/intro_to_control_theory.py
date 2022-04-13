@@ -30,7 +30,7 @@ class Car:
     # Utility function to simplify plotting
     def sensor_i(self):
         # Rotation matrix to get back to the main frame.
-        R = np.array(((np.cos(theta), -np.sin(theta)), (np.sin(theta), np.cos(theta))))
+        R = np.array(((np.cos(self.theta), -np.sin(self.theta)), (np.sin(self.theta), np.cos(self.theta))))
         x_i, y_i = R.dot(np.array([[self._x_1],[0]]))
         v = self._x_2
         return (x_i, y_i, v)
