@@ -35,6 +35,7 @@ modules = ["intro_to_control_theory.py",
            "simple_pendulum.py",
            "dc_motor.py",
            "workspace.py",
+           "workspace_solution.py",
            "tools.py"]
 
 doc_url = "https://andreamunafo.github.io/classical_control_theory/"

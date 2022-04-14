@@ -61,6 +61,9 @@ entries:
       title: PID Control
       url: PID_Control.html
     - output: web,pdf
+      title: Part 2 Recap
+      url: Part_2_recap.html
+    - output: web,pdf
       title: Simulating a simple pendulum
       url: Simple_pendulum.html
     - output: web,pdf
@@ -69,6 +72,9 @@ entries:
     - output: web,pdf
       title: Workspace
       url: workspace.html
+    - output: web,pdf
+      title: Workspace Solution
+      url: workspace_solution.html
     - output: web,pdf
       title: Assignment Part 1
       url: A_assignment_part_1.html
